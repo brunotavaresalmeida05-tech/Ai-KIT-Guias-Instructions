@@ -1,0 +1,11 @@
+{
+  "name": "ai-kit",
+  "version": "1.0.0",
+  "description": "AI-KIT - Skills and integration framework",
+  "scripts": {
+    "validate": "echo 'Validating skills...'",
+    "cli": "echo 'Running CLI...'"
+  },
+  "keywords": ["ai", "skills", "claude", "agents"],
+  "license": "MIT"
+}

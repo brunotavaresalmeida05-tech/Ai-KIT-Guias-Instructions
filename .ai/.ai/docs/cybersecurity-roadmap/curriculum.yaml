@@ -1,0 +1,56 @@
+- phase: 1
+  name: "Fundamentos de Segurança"
+  duration_weeks: 4
+  topics:
+    - networking_basics
+    - linux_fundamentals
+    - windows_systems
+    - basics_cyber_threats
+  certifications:
+    - Security+
+  books:
+    - "The Web Application Hacker's Handbook"
+- phase: 2
+  name: "Sistemas e Redes"
+  duration_weeks: 6
+  topics:
+    - active_directory
+    - network_security
+    - firewalls
+    - ids_ips
+  certifications:
+    - CCNA Security
+    - PCNSE
+- phase: 3
+  name: "Pentest e Auditoria"
+  duration_weeks: 8
+  topics:
+    - web_app_penetration
+    - network_penetration
+    - wireless_security
+    - social_engineering
+  certifications:
+    - CEH
+    - OSCP
+- phase: 4
+  name: "SOC e Resposta a Incidentes"
+  duration_weeks: 6
+  topics:
+    - siem
+    - log_analysis
+    - incident_response
+    - forensics_basics
+  certifications:
+    - GCIH
+    - GCIA
+- phase: 5
+  name: "Especializacao Avancada"
+  duration_weeks: 8
+  topics:
+    - red_team
+    - advanced_pivoting
+    - exploit_development
+    - cloud_security
+  certifications:
+    - OSCE
+    - GPEN

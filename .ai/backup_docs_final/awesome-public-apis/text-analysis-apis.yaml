@@ -1,0 +1,87 @@
+text_analysis_apis:
+  - name: "Watson Natural Language Understanding"
+    provider: "IBM"
+    base_url: "https://gateway.watsonplatform.net/natural-language-understanding/api"
+    auth: "iam_apikey"
+    free_tier: true
+    features:
+      - "Entity extraction"
+      - "Sentiment analysis"
+      - "Keyword extraction"
+      - "Relationship detection"
+      - "Concept tagging"
+      - "Emotion detection"
+
+  - name: "Google Cloud Natural Language"
+    provider: "Google Cloud"
+    base_url: "https://language.googleapis.com/v1"
+    auth: "OAuth2 / API Key"
+    free_tier: true
+    features:
+      - "Sentiment analysis"
+      - "Entity recognition"
+      - "Syntax analysis"
+      - "Content classification"
+      - "Entity events"
+
+  - name: "NLP Cloud"
+    provider: "NLP Cloud"
+    base_url: "https://api.nlcloud.io"
+    auth: "apiKey"
+    free_tier: true
+    models:
+      - "spaCy English"
+      - "Transformers"
+    features:
+      - "NER"
+      - "Sentiment"
+      - "Classification"
+      - "Summarization"
+      - "Question answering"
+
+  - name: "Perspective API"
+    provider: "Google/Jigsaw"
+    base_url: "https://commentanalyzer.googleapis.com/v1alpha1"
+    auth: "apiKey"
+    free_tier: true
+    features:
+      - "Toxicity scoring"
+      - "Severe toxicity"
+      - "Insult detection"
+      - "Threat detection"
+      - "Identity attack"
+
+  - name: "Emotional Intelligence"
+    provider: "emociii"
+    base_url: "https://api.emociii.com"
+    auth: "apiKey"
+    free_tier: true
+    features:
+      - "Emotion detection"
+      - "Sentiment analysis"
+      - "Mood classification"
+
+  - name: "TextAPI"
+    provider: "TextAPI"
+    base_url: "https://textapi.com"
+    auth: "apiKey"
+    features:
+      - "Text classification"
+      - "Text summarization"
+      - "Named entity recognition"
+
+  - name: "Language Tool"
+    provider: "LanguageTool"
+    base_url: "https://api.languagetool.org/v2"
+    auth: "No auth required"
+    features:
+      - "Grammar checking"
+      - "Style improvement"
+      - "Spell checking"
+      - "Multi-language support"
+    python_example: |
+      import requests
+      url = "https://api.languagetool.org/v2/check"
+      data = {"text": "This is a test sentence."}
+      response = requests.post(url, data=data)
+      errors = response.json().get("matches", [])

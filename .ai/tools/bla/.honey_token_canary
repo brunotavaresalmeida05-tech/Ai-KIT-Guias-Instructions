@@ -1,0 +1,6 @@
+{
+  "type": "honey_token",
+  "value": "db4a0f5e466b71fe501713ba920feb54",
+  "created": 1793660681.6130612,
+  "purpose": "Detect access to honey_token"
+}

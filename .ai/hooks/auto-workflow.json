@@ -1,0 +1,57 @@
+{
+  "hooks": [
+    {
+      "name": "auto-council-on-architecture",
+      "trigger": "user_message",
+      "pattern": "(architecture|design|microservice|system design)",
+      "condition": "task_complexity > 7",
+      "action": "invoke_skill",
+      "skill": "agent-orchestration",
+      "params": {
+        "pattern": "council",
+        "agents": ["architect", "security-reviewer", "backend-specialist"]
+      }
+    },
+    {
+      "name": "auto-optimize-on-build-slow",
+      "trigger": "command_complete",
+      "pattern": "(build|compile|test).*slow",
+      "condition": "execution_time > 120",
+      "action": "invoke_skill",
+      "skill": "continuous-loop",
+      "params": {
+        "task": "optimize build performance",
+        "qualityThreshold": 0.85,
+        "maxIterations": 10
+      }
+    },
+    {
+      "name": "auto-evaluate-agent-output",
+      "trigger": "skill_complete",
+      "pattern": "(code-review|security-review|architecture)",
+      "condition": "always",
+      "action": "invoke_skill",
+      "skill": "guild-member-eval",
+      "params": {
+        "metrics": ["accuracy", "completeness", "security"]
+      }
+    },
+    {
+      "name": "auto-document-decision",
+      "trigger": "council_complete",
+      "condition": "consensus_reached",
+      "action": "invoke_skill",
+      "skill": "documentation-builder",
+      "params": {
+        "type": "decision",
+        "format": "ADR"
+      }
+    }
+  ],
+  "automation": {
+    "enabled": true,
+    "max_concurrent": 3,
+    "retry_on_failure": 2,
+    "timeout_seconds": 300
+  }
+}

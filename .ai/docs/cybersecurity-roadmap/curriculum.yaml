@@ -1,0 +1,34 @@
+phases:
+- modules:
+  - name: Computer Fundamentals
+    topics:
+    - Operating Systems
+    - Networking Basics
+    - Programming Fundamentals
+    - Linux Fundamentals
+  name: Foundation Phase
+- modules:
+  - name: Network Security
+    topics:
+    - Network Protocols
+    - Firewalls
+    - VPN
+  name: Technical Skills Phase
+- modules:
+  - name: Offensive Security
+    topics:
+    - Pentesting
+    - Exploitation
+  name: Specialization Phase
+- modules:
+  - name: Malware Analysis
+    topics:
+    - Reverse Engineering
+    - Threat Intel
+  name: Advanced Phase
+- modules:
+  - name: Career Development
+    topics:
+    - Certifications
+    - Networking
+  name: Professional Development

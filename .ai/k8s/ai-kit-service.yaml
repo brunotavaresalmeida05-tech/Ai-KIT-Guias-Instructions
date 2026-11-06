@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-kit-api
+  namespace: ai-kit
+  labels:
+    app.kubernetes.io/name: ai-kit
+    app.kubernetes.io/component: api
+    app.kubernetes.io/instance: main
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: http
+    protocol: TCP
+    name: http
+  selector:
+    app.kubernetes.io/name: ai-kit
+    app.kubernetes.io/component: api
+    app.kubernetes.io/instance: main

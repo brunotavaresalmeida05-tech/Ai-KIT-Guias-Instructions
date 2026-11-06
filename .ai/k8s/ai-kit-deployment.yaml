@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-kit-api
+  namespace: ai-kit
+  labels:
+    app.kubernetes.io/name: ai-kit
+    app.kubernetes.io/component: api
+    app.kubernetes.io/instance: main
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ai-kit
+      app.kubernetes.io/component: api
+      app.kubernetes.io/instance: main
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ai-kit
+        app.kubernetes.io/component: api
+        app.kubernetes.io/instance: main
+    spec:
+      containers:
+      - name: ai-kit-api
+        image: ghcr.io/your-org/ai-kit:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+          name: http
+        envFrom:
+        - configMapRef:
+            name: ai-kit-config
+        - secretRef:
+            name: ai-kit-secrets
+        env:
+        - name: DATABASE_URL
+          value: "postgresql://ai_kit_user:$(POSTGRES_PASSWORD)@ai-kit-postgres:5432/ai_kit_dev"
+        - name: REDIS_URL
+          value: "redis://:$(REDIS_PASSWORD)@ai-kit-redis:6379"
+        - name: POST_MORTEM_ENABLED
+          value: "true"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 20
+          periodSeconds: 15
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          readOnlyRootFilesystem: false
+      securityContext:
+        runAsNonRoot: true
+        fsGroup: 1000

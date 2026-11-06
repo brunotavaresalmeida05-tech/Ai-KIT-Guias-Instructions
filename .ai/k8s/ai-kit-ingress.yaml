@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ai-kit-ingress
+  namespace: ai-kit
+  annotations:
+    nginx.ingress.kubernetes.io/auth-tls-verify-client: "true"
+    nginx.ingress.kubernetes.io/auth-tls-secret: "ai-kit/tls-bootstrap"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - ai-kit.example.com
+    secretName: ai-kit-tls
+  rules:
+  - host: ai-kit.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ai-kit-api
+            port:
+              number: 80

@@ -1,0 +1,2828 @@
+{
+  "kit_root": "D:\\Projetos\\Ai-KIT-Guias-Instru\u00e7\u00f5es\\.ai",
+  "total_resources": 110,
+  "by_type": {
+    "agent": 16,
+    "skill": 24,
+    "recipe": 21,
+    "tool": 2,
+    "document": 15,
+    "test": 14,
+    "config": 5,
+    "example": 4,
+    "template": 9
+  },
+  "resources": {
+    "agent:architect": {
+      "id": "agent:architect",
+      "type": "ResourceType.AGENT",
+      "name": "architect",
+      "path": "agents\\architect",
+      "description": "role: Senior Software Architect",
+      "capabilities": [
+        "build",
+        "test",
+        "review"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "architect"
+      },
+      "usage_examples": []
+    },
+    "agent:backend-specialist": {
+      "id": "agent:backend-specialist",
+      "type": "ResourceType.AGENT",
+      "name": "backend-specialist",
+      "path": "agents\\backend-specialist",
+      "description": "name: backend-specialist",
+      "capabilities": [
+        "test",
+        "review",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "backend-specialist"
+      },
+      "usage_examples": []
+    },
+    "agent:code-reviewer": {
+      "id": "agent:code-reviewer",
+      "type": "ResourceType.AGENT",
+      "name": "code-reviewer",
+      "path": "agents\\code-reviewer",
+      "description": "role: Senior Code Reviewer",
+      "capabilities": [
+        "test",
+        "review"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "code-reviewer"
+      },
+      "usage_examples": []
+    },
+    "agent:db-specialist": {
+      "id": "agent:db-specialist",
+      "type": "ResourceType.AGENT",
+      "name": "db-specialist",
+      "path": "agents\\db-specialist",
+      "description": "role: Database Engineer",
+      "capabilities": [
+        "test",
+        "review"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "db-specialist"
+      },
+      "usage_examples": []
+    },
+    "agent:devops-specialist": {
+      "id": "agent:devops-specialist",
+      "type": "ResourceType.AGENT",
+      "name": "devops-specialist",
+      "path": "agents\\devops-specialist",
+      "description": "name: devops-specialist",
+      "capabilities": [
+        "test",
+        "deploy",
+        "harden",
+        "audit"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "devops-specialist"
+      },
+      "usage_examples": []
+    },
+    "agent:doc-writer": {
+      "id": "agent:doc-writer",
+      "type": "ResourceType.AGENT",
+      "name": "doc-writer",
+      "path": "agents\\doc-writer",
+      "description": "role: Technical Writer",
+      "capabilities": [
+        "build"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "doc-writer"
+      },
+      "usage_examples": []
+    },
+    "agent:feature-developer": {
+      "id": "agent:feature-developer",
+      "type": "ResourceType.AGENT",
+      "name": "feature-developer",
+      "path": "agents\\feature-developer",
+      "description": "name: feature-developer",
+      "capabilities": [
+        "test",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "feature-developer"
+      },
+      "usage_examples": []
+    },
+    "agent:frontend-specialist": {
+      "id": "agent:frontend-specialist",
+      "type": "ResourceType.AGENT",
+      "name": "frontend-specialist",
+      "path": "agents\\frontend-specialist",
+      "description": "name: frontend-specialist",
+      "capabilities": [
+        "test",
+        "review"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "frontend-specialist"
+      },
+      "usage_examples": []
+    },
+    "agent:mobile-specialist": {
+      "id": "agent:mobile-specialist",
+      "type": "ResourceType.AGENT",
+      "name": "mobile-specialist",
+      "path": "agents\\mobile-specialist",
+      "description": "name: mobile-specialist",
+      "capabilities": [
+        "test",
+        "review"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "mobile-specialist"
+      },
+      "usage_examples": []
+    },
+    "agent:performance-optimizer": {
+      "id": "agent:performance-optimizer",
+      "type": "ResourceType.AGENT",
+      "name": "performance-optimizer",
+      "path": "agents\\performance-optimizer",
+      "description": "name: performance-optimizer",
+      "capabilities": [
+        "review",
+        "optimize",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "performance-optimizer"
+      },
+      "usage_examples": []
+    },
+    "agent:rea-analyst": {
+      "id": "agent:rea-analyst",
+      "type": "ResourceType.AGENT",
+      "name": "rea-analyst",
+      "path": "agents\\rea-analyst",
+      "description": "Agente especializado em **Engenharia Reversa Assistida por IA** (REA - Reverse Engineering Agents).",
+      "capabilities": [
+        "reverse",
+        "reconstruct"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "rea-analyst"
+      },
+      "usage_examples": [
+        "1. TARGET IDENTIFICATION \u2192 2. STATIC ANALYSIS \u2192 3. DYNAMIC ANALYSIS \u2192 \n4. SYMBOLIC EXECUTION \u2192 5. CODE RECONSTRUCTION \u2192 6. REPORT GENERATION"
+      ]
+    },
+    "agent:security-auditor": {
+      "id": "agent:security-auditor",
+      "type": "ResourceType.AGENT",
+      "name": "security-auditor",
+      "path": "agents\\security-auditor",
+      "description": "name: security-auditor",
+      "capabilities": [
+        "review",
+        "defend",
+        "audit"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "security-auditor"
+      },
+      "usage_examples": []
+    },
+    "agent:security-defender": {
+      "id": "agent:security-defender",
+      "type": "ResourceType.AGENT",
+      "name": "security-defender",
+      "path": "agents\\security-defender",
+      "description": "Agente especializado em **Defesa contra Engenharia Reversa por IA** (Black-box LLM Agents defense).",
+      "capabilities": [
+        "build",
+        "test",
+        "validate",
+        "transform",
+        "reverse",
+        "defend",
+        "harden",
+        "audit"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "security-defender"
+      },
+      "usage_examples": [
+        "1. AUDIT TARGET \u2192 2. IDENTIFY EXPOSURES \u2192 3. APPLY DEFENSES \u2192 \n4. VALIDATE RESISTANCE \u2192 5. BENCHMARK \u2192 6. DOCUMENT"
+      ]
+    },
+    "agent:skill-orchestrator": {
+      "id": "agent:skill-orchestrator",
+      "type": "ResourceType.AGENT",
+      "name": "skill-orchestrator",
+      "path": "agents\\skill-orchestrator",
+      "description": "name: skill-orchestrator",
+      "capabilities": [],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "skill-orchestrator"
+      },
+      "usage_examples": []
+    },
+    "agent:test-writer": {
+      "id": "agent:test-writer",
+      "type": "ResourceType.AGENT",
+      "name": "test-writer",
+      "path": "agents\\test-writer",
+      "description": "role: QA / Test Engineer",
+      "capabilities": [
+        "test",
+        "review"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "test-writer"
+      },
+      "usage_examples": []
+    },
+    "agent:ui-specialist": {
+      "id": "agent:ui-specialist",
+      "type": "ResourceType.AGENT",
+      "name": "ui-specialist",
+      "path": "agents\\ui-specialist",
+      "description": "role: UI / UX Engineer",
+      "capabilities": [
+        "build",
+        "review"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "agent_dir": "ui-specialist"
+      },
+      "usage_examples": []
+    },
+    "skill:architecture-first": {
+      "id": "skill:architecture-first",
+      "type": "ResourceType.SKILL",
+      "name": "architecture-first",
+      "path": "skills\\architecture-first",
+      "description": "Desenho de arquitectura de sistema antes de qualquer implementa\u00e7\u00e3o. Cobre backend, frontend, base de dados, integra\u00e7\u00f5es e decis\u00f5es t\u00e9cnicas (ADRs). Usa para sistemas novos ou mudan\u00e7as arquitecturais significativas.",
+      "capabilities": [
+        "architecture",
+        "design",
+        "adr"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "architecture",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "\u25a1 Padr\u00e3o (MVC / Clean / Hexagonal / Microservices)?\n\u25a1 Camadas: Controller \u2192 Service \u2192 Repository \u2192 DB\n\u25a1 Gest\u00e3o de erros centralizada?\n\u25a1 Logging e observabilidade?\n\u25a1 Rate limiting e throttling?\n\u25a1 Cache",
+        "\u25a1 SPA / SSR / SSG / Islands?\n\u25a1 Estado global vs local?\n\u25a1 Data fetching strategy (SWR / React Query / Server Components)?\n\u25a1 Code splitting e lazy loading?\n\u25a1 Acessibilidade (WCAG 2.1)?\n\u25a1 Performance bud",
+        "\u25a1 Relacional vs NoSQL \u2014 justifica\u00e7\u00e3o?\n\u25a1 Schema / modelos desenhados?\n\u25a1 \u00cdndices cr\u00edticos identificados?\n\u25a1 Migrations strategy?\n\u25a1 Backup e recovery plan?"
+      ]
+    },
+    "skill:autonomous-discovery": {
+      "id": "skill:autonomous-discovery",
+      "type": "ResourceType.SKILL",
+      "name": "autonomous-discovery",
+      "path": "skills\\autonomous-discovery",
+      "description": "Sistema de descoberta e uso aut\u00f4nomo de recursos do kit por agentes de IA",
+      "capabilities": [
+        "autonomy",
+        "discovery",
+        "resource-registry",
+        "agent-framework",
+        "Recursos relevantes descobertos automaticamente",
+        "Tarefa executada usando recursos apropriados",
+        "Hist\u00f3rico de execu\u00e7\u00e3o registrado"
+      ],
+      "dependencies": [
+        "Python 3.10+",
+        "Kit AI Development System instalado"
+      ],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "development",
+        "author": "AI Development System",
+        "input_schema": {
+          "type": "object",
+          "required": [
+            "task_description"
+          ],
+          "properties": {
+            "task_description": {
+              "type": "string",
+              "description": "Descri\u00e7\u00e3o da tarefa em linguagem natural"
+            },
+            "agent_type": {
+              "type": "string",
+              "description": "Tipo de agente a usar (opcional, auto-selecionado)"
+            },
+            "parameters": {
+              "type": "object",
+              "description": "Par\u00e2metros adicionais para a tarefa"
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "object",
+              "description": "Resultado da execu\u00e7\u00e3o aut\u00f4noma"
+            },
+            "resources_used": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Recursos do kit utilizados"
+            },
+            "suggestions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Sugest\u00f5es de pr\u00f3ximas a\u00e7\u00f5es"
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 5,
+          "max_seconds": 300,
+          "typical_seconds": 30
+        },
+        "resources": {
+          "cpu": "low",
+          "memory_mb": 256,
+          "disk_mb": 50,
+          "network": false
+        },
+        "integrations": [
+          {
+            "system": "Resource Registry",
+            "how": "Descoberta autom\u00e1tica via AutonomousResourceRegistry"
+          },
+          {
+            "system": "Agent Framework",
+            "how": "Agentes base AutonomousAgent"
+          }
+        ],
+        "related_skills": [
+          "re-engineering",
+          "security-audit",
+          "code-review"
+        ]
+      },
+      "usage_examples": [
+        "{'name': 'Descoberta aut\u00f4noma para an\u00e1lise de seguran\u00e7a', 'input': {'task_description': 'Analisar bin\u00e1rio suspeito para vulnerabilidades', 'parameters': {'target': './sample.exe'}}, 'expected_output':",
+        "{'name': 'Hardening aut\u00f4nomo de build', 'input': {'task_description': 'Proteger build contra engenharia reversa', 'parameters': {'target': './build/'}}, 'expected_output': {'result': {'success': True}"
+      ]
+    },
+    "skill:ci-cd-release": {
+      "id": "skill:ci-cd-release",
+      "type": "ResourceType.SKILL",
+      "name": "ci-cd-release",
+      "path": "skills\\ci-cd-release",
+      "description": "Pipeline de CI/CD, processo de release, deploy e rollback. Cobre desde valida\u00e7\u00e3o de c\u00f3digo at\u00e9 deploy em produ\u00e7\u00e3o com seguran\u00e7a.",
+      "capabilities": [
+        "ci",
+        "cd",
+        "release"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "devops",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "STAGE 1 \u2014 LINT & FORMAT\n  \u25a1 Linter (eslint, pylint, rubocop, etc.)\n  \u25a1 Formatter (prettier, black, etc.)\n  \u25a1 Type checking (tsc, mypy)\n\nSTAGE 2 \u2014 TESTES\n  \u25a1 Unit tests\n  \u25a1 Integration tests\n  \u25a1 Covera",
+        "ALWAYS ter plano de rollback antes de deploy\nEstrat\u00e9gias:\n- Blue/Green: muda o traffic routing\n- Feature flags: desactiva a feature\n- Database migrations: migrations revers\u00edveis\n- Versioning: volta pa",
+        "NEVER fazer deploy directo para produ\u00e7\u00e3o sem staging\nNEVER fazer deploy sem testes a verde\nNEVER fazer deploy de sexta-feira \u00e0 tarde\nALWAYS ter rollback plan documentado\nALWAYS monitorizar os primeiro"
+      ]
+    },
+    "skill:code-review": {
+      "id": "skill:code-review",
+      "type": "ResourceType.SKILL",
+      "name": "code-review",
+      "path": "skills\\code-review",
+      "description": "Review changes for correctness, readability, security and test coverage.",
+      "capabilities": [
+        "review",
+        "quality"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "code-quality",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "[ ] Code does what it's supposed to do\n[ ] Logic is correct\n[ ] Edge cases handled\n[ ] Error cases handled\n[ ] No off-by-one errors\n[ ] No infinite loops\n[ ] No race conditions\n[ ] No null pointer exc",
+        "[ ] Code is readable and self-documenting\n[ ] Naming is clear (variables, functions, classes)\n[ ] Functions are focused (single responsibility)\n[ ] Functions are not too long (max 50 lines)\n[ ] No cod",
+        "[ ] Follows project design patterns (AGENTS.md section 8)\n[ ] Uses dependency injection (if applicable)\n[ ] Appropriate use of inheritance vs composition\n[ ] No god objects (class doing too much)\n[ ] "
+      ]
+    },
+    "skill:context-router": {
+      "id": "skill:context-router",
+      "type": "ResourceType.SKILL",
+      "name": "context-router",
+      "path": "skills\\context-router",
+      "description": "Route a task to the smallest set of skills and context needed to execute it.",
+      "capabilities": [
+        "routing",
+        "context",
+        "skills"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "analysis",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "## Skills for This Task\n- [x] test-generator    (write tests first)\n- [x] code-review       (review after implementation)\n- [ ] security-audit    (optional - not needed for UI feature)\n- [ ] deploy-ma",
+        "LOAD ALWAYS:\n  - .ai/AGENTS.md                    \u2190 Single source of truth\n\nLOAD IF KEYWORD MATCH:\n  database:\n    - Load: docs/ARCHITECTURE.md\n    - Load: docs/decisions/db-choice.md\n    - Load: Code",
+        "Keywords detected: [feature, user, registration, email, validation]\n\nContext to load:\n  \u2713 AGENTS.md                          (always)\n  \u2713 AGENTS.md section 9 (Features)     (find US-XXX)\n  \u2713 docs/deci"
+      ]
+    },
+    "skill:debugging-loop": {
+      "id": "skill:debugging-loop",
+      "type": "ResourceType.SKILL",
+      "name": "debugging-loop",
+      "path": "skills\\debugging-loop",
+      "description": "Diagn\u00f3stico estruturado de bugs e erros. Segue o ciclo: Reproduzir \u2192 Isolar \u2192 Hip\u00f3tese \u2192 Testar \u2192 Corrigir \u2192 Verificar. Usa quando algo n\u00e3o funciona como esperado.",
+      "capabilities": [
+        "debug",
+        "bug",
+        "diagnosis"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "development",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "PASSO 1 \u2014 REPRODUZIR\n  \u25a1 Consigo reproduzir o erro de forma consistente?\n  \u25a1 Qual \u00e9 o input m\u00ednimo que causa o erro?\n  \u25a1 O erro acontece sempre ou intermitentemente?\n\nPASSO 2 \u2014 ISOLAR\n  \u25a1 Em que camad",
+        "Se o erro n\u00e3o \u00e9 \u00f3bvio:\n1. Adiciona logging/print em cada passo do fluxo\n2. Verifica os tipos de dados em cada transforma\u00e7\u00e3o\n3. Testa com dados conhecidos e simples\n4. Usa um debugger ou breakpoints\n5.",
+        "ALWAYS reproduzir o bug antes de o corrigir\nALWAYS escrever um teste que falha antes do fix\nNEVER \"acha que corrigiu\" sem validar com teste\nIMPORTANT documenta causa + solu\u00e7\u00e3o no AGENTS.md"
+      ]
+    },
+    "skill:deploy-manager": {
+      "id": "skill:deploy-manager",
+      "type": "ResourceType.SKILL",
+      "name": "deploy-manager",
+      "path": "skills\\deploy-manager",
+      "description": "Plan and execute deployments with rollback and verification steps.",
+      "capabilities": [
+        "deploy",
+        "rollback",
+        "release"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "deployment",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "[ ] All tests pass locally\n[ ] All tests pass in CI/CD pipeline\n[ ] Code coverage >80%\n[ ] Linting passes (no errors, no warnings)\n[ ] Security audit passed (no critical issues)\n[ ] Code review approv",
+        "[ ] .env.example updated with all required variables\n[ ] Database migrations created and tested\n[ ] Feature flags configured (if gradual rollout)\n[ ] Monitoring/alerting configured\n[ ] Log aggregation",
+        "[ ] Release notes written\n[ ] Deployment guide updated\n[ ] Breaking changes documented\n[ ] Migration guide (if database schema changed)\n[ ] Runbooks updated (if operational changes)"
+      ]
+    },
+    "skill:devops-secops": {
+      "id": "skill:devops-secops",
+      "type": "ResourceType.SKILL",
+      "name": "devops-secops",
+      "path": "skills\\devops-secops",
+      "description": "Infra, observabilidade, seguran\u00e7a operacional e DevOps. Cobre IaC, monitoring, alerting, incident response e hardening operacional. Usa para infra-level work.",
+      "capabilities": [
+        "devops",
+        "security",
+        "operations"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "devops",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "Princ\u00edpio: Agentes de IA devem correr em ambientes isolados.\n\nImplementa:\n\u25a1 Containers com recursos limitados (CPU, RAM, disco)\n\u25a1 Sem acesso a rede externa desnecess\u00e1rio\n\u25a1 Sem acesso a filesystem de p",
+        "\u25a1 Servers actualizados (security patches)\n\u25a1 Firewall configurado (apenas portas necess\u00e1rias)\n\u25a1 SSH: apenas key-based auth, root login desactivado\n\u25a1 Secrets em vault (n\u00e3o em env files no servidor)\n\u25a1 Ba",
+        "3 Pilares:\n1. LOGS    \u2014 o que aconteceu? (structured JSON logs)\n2. METRICS \u2014 como est\u00e1 a correr? (CPU, RAM, lat\u00eancia, errors)\n3. TRACES  \u2014 porqu\u00ea est\u00e1 lento? (request tracing)\n\nAlertas cr\u00edticos:\n- Err"
+      ]
+    },
+    "skill:documentation-builder": {
+      "id": "skill:documentation-builder",
+      "type": "ResourceType.SKILL",
+      "name": "documentation-builder",
+      "path": "skills\\documentation-builder",
+      "description": "Documenta\u00e7\u00e3o t\u00e9cnica para engenheiros: README, ADRs, coment\u00e1rios de c\u00f3digo, API docs e documentos de handoff. Para docs orientadas a utilizadores finais, usa technical-writer.",
+      "capabilities": [
+        "docs",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "documentation",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "# [Nome do Projecto]\n\n> [Descri\u00e7\u00e3o em 1 frase]\n\n## Quick Start\n\\`\\`\\`bash\ngit clone ...\ncp .env.example .env\n# edita .env com os teus valores\nnpm install\nnpm run dev\n\\`\\`\\`\n\n## Stack\n- Frontend: [...]",
+        "Comenta O QU\u00ca e PORQU\u00ca, n\u00e3o COMO:\n\u2705 # Usa SHA-256 porque MD5 tem colis\u00f5es conhecidas\n\u274c # Cria hash da password\n\nFun\u00e7\u00f5es complexas: JSDoc / docstring com:\n- Par\u00e2metros e tipos\n- Valor de retorno\n- Exem",
+        "ALWAYS actualizar docs quando o c\u00f3digo muda\nNEVER deixar docs desactualizadas ap\u00f3s refactor\nIMPORTANT docs s\u00e3o c\u00f3digo \u2014 revis\u00e3o \u00e9 obrigat\u00f3ria"
+      ]
+    },
+    "skill:implementation-assistant": {
+      "id": "skill:implementation-assistant",
+      "type": "ResourceType.SKILL",
+      "name": "implementation-assistant",
+      "path": "skills\\implementation-assistant",
+      "description": "Transforma planos e arquitecturas em c\u00f3digo real. Segue a arquitectura definida, aplica TDD, respeita os design patterns do projecto e entrega c\u00f3digo test\u00e1vel.",
+      "capabilities": [
+        "implementation",
+        "feature"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "development",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "PARA CADA TAREFA DO PLANO:\n\n1. L\u00ca a tarefa e verifica depend\u00eancias\n2. ESCREVE o teste primeiro (TDD)\n3. IMPLEMENTA o m\u00ednimo para passar o teste\n4. VALIDA: testes passam? l\u00f3gica correcta?\n5. REFACTORA ",
+        "Modo recomendado de trabalho:\n- Tu defines O QU\u00ca e PORQU\u00ca\n- A IA implementa O COMO\n- Tu validas a l\u00f3gica e o resultado\n- Juntos detectam problemas\n\nN\u00e3o aceites c\u00f3digo que n\u00e3o entendes.\nPede sempre exp",
+        "Antes de aceitar qualquer c\u00f3digo, verifica:\n\u25a1 Segue os patterns do projecto (AGENTS.md sec\u00e7\u00e3o 8)?\n\u25a1 Tem testes correspondentes?\n\u25a1 Os testes validam l\u00f3gica real ou apenas sintaxe?\n\u25a1 Existem edge cases "
+      ]
+    },
+    "skill:implementation-plan": {
+      "id": "skill:implementation-plan",
+      "type": "ResourceType.SKILL",
+      "name": "implementation-plan",
+      "path": "skills\\implementation-plan",
+      "description": "Decomp\u00f5e uma feature ou sistema em tarefas sequenciais concretas com inputs, outputs e depend\u00eancias. Usa ap\u00f3s architecture-first e antes de escrever c\u00f3digo.",
+      "capabilities": [
+        "planning",
+        "implementation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "development",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "## PLANO: [Nome da Feature]\n\n### Fase 1 \u2014 Funda\u00e7\u00e3o\n- [ ] Task 1.1: [descri\u00e7\u00e3o]\n  - Input: [o que precisa]\n  - Output: [o que produz]\n  - Test: [como validar]\n  - Estimativa: [XS/S/M/L]\n\n### Fase 2 \u2014 C",
+        "ALWAYS quebrar em tarefas de m\u00e1x. 2h de trabalho\nALWAYS definir crit\u00e9rio de \"done\" por tarefa\nNEVER saltar Fase 4 (valida\u00e7\u00e3o)\nIMPORTANT cada tarefa deve ter pelo menos 1 teste associado"
+      ]
+    },
+    "skill:pm-analyst": {
+      "id": "skill:pm-analyst",
+      "type": "ResourceType.SKILL",
+      "name": "pm-analyst",
+      "path": "skills\\pm-analyst",
+      "description": "Product Manager e analista de requisitos. Escreve user stories, gere backlog, define crit\u00e9rios de aceita\u00e7\u00e3o e prioriza features. Usa ap\u00f3s spec-viva para decompor o produto em unidades entreg\u00e1veis.",
+      "capabilities": [
+        "product",
+        "requirements",
+        "analysis"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "analysis",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "**Como** [tipo de utilizador],\n**Quero** [ac\u00e7\u00e3o/funcionalidade],\n**Para que** [benef\u00edcio/valor].\n\n### Crit\u00e9rios de Aceita\u00e7\u00e3o\n- [ ] Dado [contexto], quando [ac\u00e7\u00e3o], ent\u00e3o [resultado]\n- [ ] Dado [contex",
+        "Must Have    \u2014 sem isto o produto n\u00e3o funciona\nShould Have  \u2014 importante mas n\u00e3o bloqueante\nCould Have   \u2014 nice-to-have se houver tempo\nWon't Have   \u2014 fora do scope desta itera\u00e7\u00e3o",
+        "ALWAYS definir crit\u00e9rios de aceita\u00e7\u00e3o antes de implementar\nALWAYS incluir Definition of Done\nNEVER story sem crit\u00e9rio de aceita\u00e7\u00e3o test\u00e1vel\nIMPORTANT hist\u00f3rias devem ser independentes e entreg\u00e1veis se"
+      ]
+    },
+    "skill:prompt-builder": {
+      "id": "skill:prompt-builder",
+      "type": "ResourceType.SKILL",
+      "name": "prompt-builder",
+      "path": "skills\\prompt-builder",
+      "description": "Design e constru\u00e7\u00e3o de prompts para tarefas espec\u00edficas, agentes e sistemas multi-agente. Produz prompts claros, com exemplos, guardrails e formato de sa\u00edda definido.",
+      "capabilities": [
+        "prompt",
+        "ai",
+        "context"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "analysis",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "1. PAPEL / IDENTIDADE\n   \"\u00c9s um engenheiro s\u00e9nior de seguran\u00e7a com 15 anos de experi\u00eancia...\"\n\n2. CONTEXTO\n   \"O projecto usa [stack]. O c\u00f3digo \u00e9 [descri\u00e7\u00e3o]...\"\n\n3. TAREFA ESPEC\u00cdFICA\n   \"Analisa o se",
+        "Chain-of-thought: \"Pensa passo a passo antes de responder\"\nSelf-critique: \"Antes de responder, critica a tua pr\u00f3pria resposta\"\nRole separation: usa pap\u00e9is distintos para perspectivas diferentes\nContex",
+        "\"Actua como um especialista em prompt engineering.\nAnalisa este prompt e sugere melhorias para:\n1. Clareza da instru\u00e7\u00e3o\n2. Completude do contexto\n3. Especificidade do output\n4. Guardrails necess\u00e1rios\n"
+      ]
+    },
+    "skill:qa-testing": {
+      "id": "skill:qa-testing",
+      "type": "ResourceType.SKILL",
+      "name": "qa-testing",
+      "path": "skills\\qa-testing",
+      "description": "QA manual e funcional. Plano de testes, testes de regress\u00e3o, valida\u00e7\u00e3o de aceita\u00e7\u00e3o e relat\u00f3rio de qualidade. Complementa o tdd-workflow (que \u00e9 t\u00e9cnico) com a perspectiva do utilizador.",
+      "capabilities": [
+        "qa",
+        "testing"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "testing",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "## Plano de Testes: [Feature/Release]\n\n### \u00c2mbito\n- O que est\u00e1 em teste: [...]\n- O que est\u00e1 fora: [...]\n\n### Ambientes\n- [ ] Local\n- [ ] Staging\n- [ ] Produ\u00e7\u00e3o (smoke only)\n\n### Tipos de Teste\n- [ ] F",
+        "Para cada funcionalidade:\n1. Happy path \u2014 fluxo normal com dados v\u00e1lidos\n2. Dados inv\u00e1lidos \u2014 o sistema rejeita correctamente?\n3. Dados extremos \u2014 muito longos, muito curtos, vazios\n4. Permiss\u00f5es \u2014 ut",
+        "Sinais de que a l\u00f3gica est\u00e1 errada (mesmo com testes a verde):\n- Resultado \"funciona\" mas n\u00e3o faz sentido de neg\u00f3cio\n- C\u00e1lculos correctos mas com valores inesperados\n- Fluxo completa mas utilizador n\u00e3"
+      ]
+    },
+    "skill:re-engineering": {
+      "id": "skill:re-engineering",
+      "type": "ResourceType.SKILL",
+      "name": "re-engineering",
+      "path": "skills\\re-engineering",
+      "description": "Habilidade de engenharia reversa e defesa baseada em IA usando os frameworks REA e BLA para an\u00e1lise de bin\u00e1rios e prote\u00e7\u00e3o contra REAs",
+      "capabilities": [
+        "reverse-engineering",
+        "security",
+        "binary-analysis",
+        "anti-re",
+        "bla",
+        "Tipo de arquivo detectado corretamente",
+        "Strings e imports extra\u00eddos",
+        "Indicadores suspeitos identificados",
+        "Relat\u00f3rio gerado no formato solicitado"
+      ],
+      "dependencies": [
+        "security-audit",
+        "Python 3.10+",
+        "Node.js >= 18 (para MCP)",
+        "Ferramentas de RE opcionais: Ghidra, JADX, binwalk"
+      ],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "security",
+        "author": "AI Development System",
+        "input_schema": {
+          "type": "object",
+          "required": [
+            "target"
+          ],
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Caminho do arquivo ou diret\u00f3rio a ser analisado"
+            },
+            "analysis_type": {
+              "type": "string",
+              "enum": [
+                "static",
+                "dynamic",
+                "full"
+              ],
+              "default": "static",
+              "description": "Tipo de an\u00e1lise a realizar"
+            },
+            "output_format": {
+              "type": "string",
+              "enum": [
+                "json",
+                "markdown",
+                "both"
+              ],
+              "default": "json",
+              "description": "Formato do relat\u00f3rio de sa\u00edda"
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "analysis_report": {
+              "type": "object",
+              "description": "Relat\u00f3rio completo de an\u00e1lise"
+            },
+            "reconstructed_code": {
+              "type": "string",
+              "description": "C\u00f3digo reconstru\u00eddo (se aplic\u00e1vel)"
+            },
+            "vulnerabilities": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Lista de vulnerabilidades encontradas"
+            },
+            "security_metrics": {
+              "type": "object",
+              "description": "M\u00e9tricas de seguran\u00e7a e resist\u00eancia"
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 10,
+          "max_seconds": 300,
+          "typical_seconds": 60
+        },
+        "resources": {
+          "cpu": "medium",
+          "memory_mb": 512,
+          "disk_mb": 100,
+          "network": false
+        },
+        "integrations": [
+          {
+            "system": "REA MCP",
+            "how": "An\u00e1lise via npx rea-agents"
+          },
+          {
+            "system": "BLA MCP",
+            "how": "Hardening via npx bla-agents"
+          }
+        ],
+        "related_skills": [
+          "security-audit",
+          "code-review",
+          "devops-secops"
+        ]
+      },
+      "usage_examples": [
+        "{'name': 'An\u00e1lise est\u00e1tica de bin\u00e1rio Windows', 'input': {'target': './malware.exe', 'analysis_type': 'static', 'output_format': 'json'}, 'expected_output': {'analysis_report': {'file_info': {'detecte",
+        "{'name': 'Defesa BLA de build', 'input': {'target': './build/', 'analysis_type': 'full', 'output_format': 'both'}, 'expected_output': {'security_metrics': {'techniques_applied': ['exhaustion', 'poison"
+      ]
+    },
+    "skill:refactor-guardrail": {
+      "id": "skill:refactor-guardrail",
+      "type": "ResourceType.SKILL",
+      "name": "refactor-guardrail",
+      "path": "skills\\refactor-guardrail",
+      "description": "Refactoring seguro e behavior-preserving. Simplifica, reestrutura e melhora qualidade do c\u00f3digo sem introduzir regress\u00f5es. Evita overengineering.",
+      "capabilities": [
+        "refactor",
+        "quality"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "code-quality",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "ANTES de refactorizar:\n  \u25a1 Todos os testes existentes passam? (baseline)\n  \u25a1 Cobertura de testes \u00e9 suficiente?\n  \u25a1 O scope do refactor est\u00e1 claro?\n\nDURANTE:\n  \u25a1 Uma mudan\u00e7a de cada vez\n  \u25a1 Testes pass",
+        "Code Smells a eliminar:\n- Fun\u00e7\u00e3o > 30 linhas \u2192 extrair\n- Par\u00e2metros > 4 \u2192 agrupar em objecto\n- Duplica\u00e7\u00e3o > 2x \u2192 extrair fun\u00e7\u00e3o/m\u00f3dulo\n- Coment\u00e1rio que explica \"como\" \u2192 o c\u00f3digo deve explicar-se\n- Con",
+        "NEVER adicionar abstrac\u00e7\u00e3o sem necessidade provada\nNEVER refactorizar e adicionar features ao mesmo tempo\nNEVER \"melhorar\" o que n\u00e3o est\u00e1 partido\nIMPORTANT YAGNI: \"You Aren't Gonna Need It\"\nIMPORTANT "
+      ]
+    },
+    "skill:research-agent": {
+      "id": "skill:research-agent",
+      "type": "ResourceType.SKILL",
+      "name": "research-agent",
+      "path": "skills\\research-agent",
+      "description": "Pesquisa t\u00e9cnica estruturada: compara\u00e7\u00e3o de bibliotecas, avalia\u00e7\u00e3o de padr\u00f5es, revis\u00e3o de documenta\u00e7\u00e3o externa e produ\u00e7\u00e3o de uma recomenda\u00e7\u00e3o fundamentada. Usa antes de tomar decis\u00f5es t\u00e9cnicas significativas.",
+      "capabilities": [
+        "research",
+        "analysis"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "research",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "PASSO 1 \u2014 DEFINE A QUEST\u00c3O\n  \u25a1 O que precisamos decidir?\n  \u25a1 Quais s\u00e3o as restri\u00e7\u00f5es? (performance, licen\u00e7a, maturidade, etc.)\n  \u25a1 Quais s\u00e3o os crit\u00e9rios de avalia\u00e7\u00e3o?\n\nPASSO 2 \u2014 IDENTIFICA OP\u00c7\u00d5ES\n  \u25a1",
+        "ALWAYS citar fontes (docs oficiais, benchmarks, GitHub)\nALWAYS incluir trade-offs negativos da op\u00e7\u00e3o recomendada\nNEVER recomendar sem alternativas analisadas\nIMPORTANT data matters \u2014 tecnologia de 5 a"
+      ]
+    },
+    "skill:security-audit": {
+      "id": "skill:security-audit",
+      "type": "ResourceType.SKILL",
+      "name": "security-audit",
+      "path": "skills\\security-audit",
+      "description": "Audit the system against OWASP Top 10 and common attack surfaces.",
+      "capabilities": [
+        "security",
+        "audit",
+        "owasp"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "security",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "\ud83d\udd10 OWASP TOP 10 REVIEW\n\n[ ] A1 - Broken Access Control\n    - [ ] Authorization checks on all protected endpoints\n    - [ ] Role-based access control (RBAC) implemented\n    - [ ] No privilege escalation",
+        "// VULNERABLE - Don't do this\napp.post('/api/users', (req, res) => {\n  const user = {\n    email: req.body.email,  // \u274c No validation\n    role: req.body.role,    // \u274c User can set any role\n    name: re",
+        "// VULNERABLE - Plaintext comparison\nif (password === dbPassword) {\n  // \u274c Timing attack vulnerability\n}\n\n// SECURE - Use constant-time comparison\nimport bcrypt from 'bcrypt'\n\nconst isPasswordValid = "
+      ]
+    },
+    "skill:security-review": {
+      "id": "skill:security-review",
+      "type": "ResourceType.SKILL",
+      "name": "security-review",
+      "path": "skills\\security-review",
+      "description": "Auditoria de seguran\u00e7a de c\u00f3digo, arquitectura e configura\u00e7\u00f5es. Cobre OWASP Top 10, autentica\u00e7\u00e3o, autoriza\u00e7\u00e3o, segredos, inputs e abuse cases. SEMPRE carregar quando h\u00e1 auth, inputs de utilizador, permiss\u00f5es ou APIs externas.",
+      "capabilities": [
+        "security",
+        "review"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "security",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "\u25a1 A01 \u2014 Broken Access Control\n     Verifica: utilizador s\u00f3 acede ao que tem permiss\u00e3o\n     Testa: tentar aceder a recursos de outro utilizador\n\n\u25a1 A02 \u2014 Cryptographic Failures\n     Verifica: dados sens",
+        "NEVER .env em reposit\u00f3rio\nNEVER chaves em c\u00f3digo fonte\nNEVER logs com dados sens\u00edveis (passwords, tokens, PII)\nALWAYS .gitignore com .env antes do primeiro commit\nALWAYS vari\u00e1veis de ambiente para con",
+        "Para cada endpoint/fun\u00e7\u00e3o, pergunta:\n1. Quem pode chamar isto? (autentica\u00e7\u00e3o)\n2. O que pode fazer? (autoriza\u00e7\u00e3o)\n3. Com que dados? (valida\u00e7\u00e3o de input)\n4. O que pode correr mal? (error handling seguro"
+      ]
+    },
+    "skill:skill-creator": {
+      "id": "skill:skill-creator",
+      "type": "ResourceType.SKILL",
+      "name": "skill-creator",
+      "path": "skills\\skill-creator",
+      "description": "Cria novas skills seguindo o padr\u00e3o exacto deste sistema. Gera pasta, SKILL.md e ficheiros auxiliares. Mant\u00e9m consist\u00eancia e padr\u00e3o no sistema.",
+      "capabilities": [
+        "skills",
+        "meta"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "development",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "PASSO 1 \u2014 AVALIA SE \u00c9 NECESS\u00c1RIO\n  \u25a1 Nenhuma skill existente cobre este caso?\n  \u25a1 Vai ser usada mais de 3x?\n  \u25a1 \u00c9 distinta o suficiente para ser modular?\n\nPASSO 2 \u2014 DEFINE A SKILL\n  \u25a1 Nome: lower-case",
+        "---\nname: [nome-da-skill]\ndescription: >\n  [Descri\u00e7\u00e3o em 2-3 linhas. Espec\u00edfica o suficiente para routing autom\u00e1tico.\n  Inclui: quando usar, o que produz, palavras-chave de trigger.]\n---\n\n# [NOME DA S",
+        "ALWAYS seguir o template exactamente\nALWAYS actualizar context-router ap\u00f3s criar skill\nNEVER duplicar uma skill existente \u2014 consolida se necess\u00e1rio\nIMPORTANT nome da pasta = name no YAML frontmatter"
+      ]
+    },
+    "skill:spec-viva": {
+      "id": "skill:spec-viva",
+      "type": "ResourceType.SKILL",
+      "name": "spec-viva",
+      "path": "skills\\spec-viva",
+      "description": "Project Charter e Spec que evolui. Usa no in\u00edcio de qualquer projecto para capturar requisitos, objectivos, personas, riscos e crit\u00e9rios de aceita\u00e7\u00e3o. Produz um AGENTS.md estruturado e actualiza-o a cada itera\u00e7\u00e3o.",
+      "capabilities": [
+        "spec",
+        "review"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "architecture",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "FASE 1 \u2014 CONTEXTO\n  \u25a1 O que \u00e9 este projecto? (1 frase)\n  \u25a1 Quem \u00e9 o utilizador final?\n  \u25a1 Que problema resolve?\n  \u25a1 O que o torna diferente?\n\nFASE 2 \u2014 REQUISITOS\n  \u25a1 Funcionalidades core (must-have)\n ",
+        "ALWAYS actualizar AGENTS.md ap\u00f3s briefing\nALWAYS validar ideias antes de codar\nNEVER come\u00e7ar implementa\u00e7\u00e3o sem spec aprovada\nIMPORTANT spec evolui \u2014 actualiza a cada sprint/itera\u00e7\u00e3o"
+      ]
+    },
+    "skill:tdd-workflow": {
+      "id": "skill:tdd-workflow",
+      "type": "ResourceType.SKILL",
+      "name": "tdd-workflow",
+      "path": "skills\\tdd-workflow",
+      "description": "Test-Driven Development. Escreve testes ANTES do c\u00f3digo. Define casos de teste, crit\u00e9rios de aceita\u00e7\u00e3o e garante que nenhum c\u00f3digo existe sem teste correspondente.",
+      "capabilities": [
+        "tdd",
+        "testing"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "testing",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "RED    \u2192 Escreve o teste que FALHA (feature n\u00e3o existe ainda)\nGREEN  \u2192 Escreve o M\u00cdNIMO de c\u00f3digo para o teste passar\nREFACTOR \u2192 Melhora o c\u00f3digo SEM quebrar testes\nREPEAT \u2192 Pr\u00f3xima funcionalidade",
+        "tests/\n\u251c\u2500\u2500 unit/           \u2190 l\u00f3gica isolada, sem I/O\n\u251c\u2500\u2500 integration/    \u2190 m\u00faltiplos m\u00f3dulos + DB\n\u251c\u2500\u2500 e2e/            \u2190 fluxo completo do utilizador\n\u2514\u2500\u2500 fixtures/       \u2190 dados de teste reutiliz\u00e1veis",
+        "# Exemplo universal (adapta para a tua linguagem)\ndef test_[funcionalidade]_[cen\u00e1rio]_[resultado_esperado]():\n    # ARRANGE \u2014 prepara o estado\n    input_data = ...\n    \n    # ACT \u2014 executa a ac\u00e7\u00e3o\n   "
+      ]
+    },
+    "skill:technical-writer": {
+      "id": "skill:technical-writer",
+      "type": "ResourceType.SKILL",
+      "name": "technical-writer",
+      "path": "skills\\technical-writer",
+      "description": "Documenta\u00e7\u00e3o orientada a utilizadores: guias, onboarding, especifica\u00e7\u00f5es de produto e docs para n\u00e3o-engenheiros. Para docs de c\u00f3digo e ADRs usa documentation-builder.",
+      "capabilities": [
+        "writing",
+        "docs"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "documentation",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "1. Escreve para o leitor, n\u00e3o para o autor\n2. Uma ideia por par\u00e1grafo\n3. Activo > passivo: \"Clica em Save\" > \"O bot\u00e3o Save deve ser clicado\"\n4. Concreto > abstracto: inclui exemplos reais\n5. Progressi",
+        "# [T\u00edtulo]\n\n## O que vai aprender\n[Lista do que o leitor consegue fazer ap\u00f3s ler]\n\n## Pr\u00e9-requisitos\n[O que precisa de ter/saber antes]\n\n## Passo 1 \u2014 [T\u00edtulo]\n[Instru\u00e7\u00e3o clara + screenshot se \u00fatil]\n\n#",
+        "ALWAYS testar as instru\u00e7\u00f5es antes de publicar\nNEVER assumir conhecimento que o leitor pode n\u00e3o ter\nALWAYS versionar a documenta\u00e7\u00e3o com o produto\nIMPORTANT docs desactualizadas s\u00e3o piores que sem docs"
+      ]
+    },
+    "skill:test-generator": {
+      "id": "skill:test-generator",
+      "type": "ResourceType.SKILL",
+      "name": "test-generator",
+      "path": "skills\\test-generator",
+      "description": "Generate focused unit and integration tests for a change.",
+      "capabilities": [
+        "tests",
+        "automation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "version": "1.0.0",
+        "category": "testing",
+        "author": "AI-KIT Maintainers",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "Task input or context for this skill."
+            }
+          }
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Skill result or guidance."
+            }
+          }
+        },
+        "execution_time": {
+          "min_seconds": 0,
+          "max_seconds": 300,
+          "typical_seconds": 10
+        },
+        "resources": {},
+        "integrations": [],
+        "related_skills": []
+      },
+      "usage_examples": [
+        "1. READ SPEC\n   \u2193\n2. WRITE FAILING TEST\n   \u2193\n3. WRITE MINIMAL CODE (make test pass)\n   \u2193\n4. REFACTOR\n   \u2193\n5. COMMIT (with test reference)",
+        "// tests/services/user.service.test.ts\nimport { UserService } from '../src/services/user.service'\nimport { UserRepository } from '../src/repository/user.repository'\n\ndescribe('UserService', () => {\n  ",
+        "// tests/integration/user.integration.test.ts\ndescribe('User Feature (Integration)', () => {\n  let app: Express.Application\n  let db: Database\n\n  beforeAll(async () => {\n    app = createApp()\n    db ="
+      ]
+    },
+    "recipe:recipe-01-jwt-authentication": {
+      "id": "recipe:recipe-01-jwt-authentication",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-01-jwt-authentication",
+      "path": "recipes\\recipe-01-jwt-authentication.md",
+      "description": "> Implement secure JWT-based authentication with refresh tokens",
+      "capabilities": [
+        "test",
+        "deploy",
+        "review",
+        "secure",
+        "generate",
+        "validate",
+        "debug",
+        "audit"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-01-jwt-authentication.md"
+      ]
+    },
+    "recipe:recipe-02-oauth2-integration": {
+      "id": "recipe:recipe-02-oauth2-integration",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-02-oauth2-integration",
+      "path": "recipes\\recipe-02-oauth2-integration.md",
+      "description": "> Implement OAuth 2.0 authentication with Google and GitHub providers",
+      "capabilities": [
+        "test",
+        "secure",
+        "generate"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-02-oauth2-integration.md"
+      ]
+    },
+    "recipe:recipe-03-database-migrations": {
+      "id": "recipe:recipe-03-database-migrations",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-03-database-migrations",
+      "path": "recipes\\recipe-03-database-migrations.md",
+      "description": "> Implement versioned database migrations with rollback support",
+      "capabilities": [
+        "test"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-03-database-migrations.md"
+      ]
+    },
+    "recipe:recipe-04-error-handling-logging": {
+      "id": "recipe:recipe-04-error-handling-logging",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-04-error-handling-logging",
+      "path": "recipes\\recipe-04-error-handling-logging.md",
+      "description": "> Implement production-grade error handling with structured logging",
+      "capabilities": [
+        "test",
+        "monitor",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-04-error-handling-logging.md"
+      ]
+    },
+    "recipe:recipe-05-rate-limiting": {
+      "id": "recipe:recipe-05-rate-limiting",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-05-rate-limiting",
+      "path": "recipes\\recipe-05-rate-limiting.md",
+      "description": "> Implement distributed rate limiting with multiple strategies",
+      "capabilities": [
+        "test",
+        "monitor",
+        "generate",
+        "validate"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-05-rate-limiting.md"
+      ]
+    },
+    "recipe:recipe-06-caching-redis": {
+      "id": "recipe:recipe-06-caching-redis",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-06-caching-redis",
+      "path": "recipes\\recipe-06-caching-redis.md",
+      "description": "> Implement multi-layer caching with automatic invalidation",
+      "capabilities": [
+        "test",
+        "validate",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-06-caching-redis.md"
+      ]
+    },
+    "recipe:recipe-07-graphql-api": {
+      "id": "recipe:recipe-07-graphql-api",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-07-graphql-api",
+      "path": "recipes\\recipe-07-graphql-api.md",
+      "description": "> Build scalable GraphQL API with subscriptions and real-time capabilities",
+      "capabilities": [
+        "build",
+        "test",
+        "validate",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-07-graphql-api.md"
+      ]
+    },
+    "recipe:recipe-08-file-upload": {
+      "id": "recipe:recipe-08-file-upload",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-08-file-upload",
+      "path": "recipes\\recipe-08-file-upload.md",
+      "description": "> Implement secure file uploads with cloud storage integration",
+      "capabilities": [
+        "test",
+        "secure",
+        "generate",
+        "validate",
+        "optimize"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-08-file-upload.md"
+      ]
+    },
+    "recipe:recipe-09-email-service": {
+      "id": "recipe:recipe-09-email-service",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-09-email-service",
+      "path": "recipes\\recipe-09-email-service.md",
+      "description": "> Implement transactional email with multiple providers and templating",
+      "capabilities": [
+        "test",
+        "secure",
+        "monitor",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-09-email-service.md"
+      ]
+    },
+    "recipe:recipe-10-sms-service": {
+      "id": "recipe:recipe-10-sms-service",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-10-sms-service",
+      "path": "recipes\\recipe-10-sms-service.md",
+      "description": "> Implement SMS delivery with multiple providers and OTP verification",
+      "capabilities": [
+        "test",
+        "generate",
+        "validate",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-10-sms-service.md"
+      ]
+    },
+    "recipe:recipe-11-elasticsearch": {
+      "id": "recipe:recipe-11-elasticsearch",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-11-elasticsearch",
+      "path": "recipes\\recipe-11-elasticsearch.md",
+      "description": "> Implement full-text search with Elasticsearch and real-time indexing",
+      "capabilities": [
+        "analyze",
+        "test",
+        "monitor",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-11-elasticsearch.md"
+      ]
+    },
+    "recipe:recipe-12-websocket-realtime": {
+      "id": "recipe:recipe-12-websocket-realtime",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-12-websocket-realtime",
+      "path": "recipes\\recipe-12-websocket-realtime.md",
+      "description": "> Implement real-time bidirectional communication with Socket.IO",
+      "capabilities": [
+        "test",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-12-websocket-realtime.md"
+      ]
+    },
+    "recipe:recipe-13-background-jobs": {
+      "id": "recipe:recipe-13-background-jobs",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-13-background-jobs",
+      "path": "recipes\\recipe-13-background-jobs.md",
+      "description": "> Implement reliable background job processing and scheduled tasks",
+      "capabilities": [
+        "test",
+        "monitor",
+        "generate"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-13-background-jobs.md"
+      ]
+    },
+    "recipe:recipe-14-api-versioning": {
+      "id": "recipe:recipe-14-api-versioning",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-14-api-versioning",
+      "path": "recipes\\recipe-14-api-versioning.md",
+      "description": "> Implement versioned APIs with smooth migration strategies",
+      "capabilities": [
+        "test",
+        "monitor",
+        "transform",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-14-api-versioning.md"
+      ]
+    },
+    "recipe:recipe-15-monitoring": {
+      "id": "recipe:recipe-15-monitoring",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-15-monitoring",
+      "path": "recipes\\recipe-15-monitoring.md",
+      "description": "> Implement comprehensive monitoring with distributed tracing and metrics",
+      "capabilities": [
+        "test",
+        "deploy",
+        "monitor",
+        "generate",
+        "debug"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-15-monitoring.md"
+      ]
+    },
+    "recipe:recipe-16-testing-qa": {
+      "id": "recipe:recipe-16-testing-qa",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-16-testing-qa",
+      "path": "recipes\\recipe-16-testing-qa.md",
+      "description": "> Comprehensive testing framework with unit, integration, and E2E tests",
+      "capabilities": [
+        "test",
+        "generate",
+        "optimize"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-16-testing-qa.md"
+      ]
+    },
+    "recipe:recipe-17-performance-optimization": {
+      "id": "recipe:recipe-17-performance-optimization",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-17-performance-optimization",
+      "path": "recipes\\recipe-17-performance-optimization.md",
+      "description": "> Systematic performance tuning and scalability improvements",
+      "capabilities": [
+        "analyze",
+        "test",
+        "monitor",
+        "optimize",
+        "debug",
+        "harden"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-17-performance-optimization.md"
+      ]
+    },
+    "recipe:recipe-18-security-hardening": {
+      "id": "recipe:recipe-18-security-hardening",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-18-security-hardening",
+      "path": "recipes\\recipe-18-security-hardening.md",
+      "description": "> Comprehensive security hardening with OWASP compliance and threat mitigation",
+      "capabilities": [
+        "test",
+        "deploy",
+        "review",
+        "secure",
+        "monitor",
+        "generate",
+        "validate",
+        "harden",
+        "audit",
+        "scan"
+      ],
+      "dependencies": [],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-18-security-hardening.md"
+      ]
+    },
+    "recipe:recipe-19-devops-deployment": {
+      "id": "recipe:recipe-19-devops-deployment",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-19-devops-deployment",
+      "path": "recipes\\recipe-19-devops-deployment.md",
+      "description": "Complete DevOps strategy com CI/CD, containerization, orchestration e monitoring.",
+      "capabilities": [
+        "build",
+        "test",
+        "deploy",
+        "monitor",
+        "scan"
+      ],
+      "dependencies": [
+        "recipe-20"
+      ],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-19-devops-deployment.md"
+      ]
+    },
+    "recipe:recipe-20-production-checklist": {
+      "id": "recipe:recipe-20-production-checklist",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-20-production-checklist",
+      "path": "recipes\\recipe-20-production-checklist.md",
+      "description": "Checklist completo para colocar o AI Development System em produ\u00e7\u00e3o com confian\u00e7a.",
+      "capabilities": [
+        "analyze",
+        "test",
+        "deploy",
+        "review",
+        "secure",
+        "monitor",
+        "generate",
+        "validate",
+        "optimize",
+        "debug",
+        "audit",
+        "scan"
+      ],
+      "dependencies": [
+        "recipe-19"
+      ],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-20-production-checklist.md"
+      ]
+    },
+    "recipe:recipe-21-rea-security": {
+      "id": "recipe:recipe-21-rea-security",
+      "type": "ResourceType.RECIPE",
+      "name": "recipe-21-rea-security",
+      "path": "recipes\\recipe-21-rea-security.md",
+      "description": "Esta receita implementa capacidades de **Engenharia Reversa Assistida por IA** (REA) e **Defesa contra REAs** (BLA) no AI Development System.",
+      "capabilities": [
+        "analyze",
+        "build",
+        "test",
+        "validate",
+        "reverse",
+        "defend",
+        "harden",
+        "scan"
+      ],
+      "dependencies": [
+        "recipe-21"
+      ],
+      "metadata": {},
+      "usage_examples": [
+        "# Siga a receita: recipe-21-rea-security.md"
+      ]
+    },
+    "tool:bla": {
+      "id": "tool:bla",
+      "type": "ResourceType.TOOL",
+      "name": "bla",
+      "path": "tools\\bla",
+      "description": "Ferramentas de defesa baseadas no projeto [qybaihe/bla](https://github.com/qybaihe/bla).",
+      "capabilities": [
+        "build",
+        "test",
+        "validate",
+        "reverse",
+        "defend",
+        "harden",
+        "python-script"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "scripts": [
+          "bla_defender.py"
+        ],
+        "readme": "tools\\bla\\README.md"
+      },
+      "usage_examples": [
+        "npm install -g bla-agents",
+        "# Aplicar todas as defesas\nbla harden ./build/\n\n# T\u00e9cnicas espec\u00edficas\nbla harden ./build/ --techniques exhaustion,poison,deception\nbla harden ./build/ --scope logic,interfaces,metadata",
+        "# Red team validation\nnpx bla-agents validate ./build/ --redteam\n\n# Benchmark resist\u00eancia\nbla benchmark ./build/"
+      ]
+    },
+    "tool:rea": {
+      "id": "tool:rea",
+      "type": "ResourceType.TOOL",
+      "name": "rea",
+      "path": "tools\\rea",
+      "description": "Ferramentas de engenharia reversa assistida por IA baseadas no projeto [morluto/rea](https://github.com/morluto/rea.git).",
+      "capabilities": [
+        "analyze",
+        "generate",
+        "reverse",
+        "extract",
+        "python-script"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "scripts": [
+          "rea_analyzer.py"
+        ],
+        "readme": "tools\\rea\\README.md"
+      },
+      "usage_examples": [
+        "npm install -g rea-agents\nnpx rea-agents setup",
+        "{\n  \"mcpServers\": {\n    \"rea\": {\n      \"command\": \"npx\",\n      \"args\": [\"rea-agents\", \"mcp\"]\n    }\n  }\n}",
+        "Input \u2192 Type Detection \u2192 Engine Selection \u2192 Analysis \u2192 Output"
+      ]
+    },
+    "doc:API_REFERENCE": {
+      "id": "doc:API_REFERENCE",
+      "type": "ResourceType.DOCUMENT",
+      "name": "API_REFERENCE",
+      "path": "docs\\API_REFERENCE.md",
+      "description": "Refer\u00eancia completa da API do AI Development System com exemplos de uso.",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: API_REFERENCE.md"
+      ]
+    },
+    "doc:ARCHITECTURE": {
+      "id": "doc:ARCHITECTURE",
+      "type": "ResourceType.DOCUMENT",
+      "name": "ARCHITECTURE",
+      "path": "docs\\ARCHITECTURE.md",
+      "description": "Design e arquitetura do AI Development System.",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: ARCHITECTURE.md"
+      ]
+    },
+    "doc:CLAUDE_MEM_STORAGE": {
+      "id": "doc:CLAUDE_MEM_STORAGE",
+      "type": "ResourceType.DOCUMENT",
+      "name": "CLAUDE_MEM_STORAGE",
+      "path": "docs\\CLAUDE_MEM_STORAGE.md",
+      "description": "> Multi-layer persistent memory system across sessions",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: CLAUDE_MEM_STORAGE.md"
+      ]
+    },
+    "doc:GETTING_STARTED": {
+      "id": "doc:GETTING_STARTED",
+      "type": "ResourceType.DOCUMENT",
+      "name": "GETTING_STARTED",
+      "path": "docs\\GETTING_STARTED.md",
+      "description": "Um guia passo a passo para come\u00e7ar a usar o AI Development System em minutos.",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: GETTING_STARTED.md"
+      ]
+    },
+    "doc:IMPLEMENTATION_GUIDE": {
+      "id": "doc:IMPLEMENTATION_GUIDE",
+      "type": "ResourceType.DOCUMENT",
+      "name": "IMPLEMENTATION_GUIDE",
+      "path": "docs\\IMPLEMENTATION_GUIDE.md",
+      "description": "Exemplos pr\u00e1ticos de como usar o AI Development System em cen\u00e1rios reais.",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: IMPLEMENTATION_GUIDE.md"
+      ]
+    },
+    "doc:LAYA": {
+      "id": "doc:LAYA",
+      "type": "ResourceType.DOCUMENT",
+      "name": "LAYA",
+      "path": "docs\\LAYA.md",
+      "description": "> Guia completo para o sistema Laya de notifica\u00e7\u00f5es inteligentes + LLM routing",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: LAYA.md"
+      ]
+    },
+    "doc:LAYA_HUB": {
+      "id": "doc:LAYA_HUB",
+      "type": "ResourceType.DOCUMENT",
+      "name": "LAYA_HUB",
+      "path": "docs\\LAYA_HUB.md",
+      "description": "> Notification hub with 7 integrations, LLM routing, and action cards",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: LAYA_HUB.md"
+      ]
+    },
+    "doc:MEMORY": {
+      "id": "doc:MEMORY",
+      "type": "ResourceType.DOCUMENT",
+      "name": "MEMORY",
+      "path": "docs\\MEMORY.md",
+      "description": "> Guia completo para o sistema de mem\u00f3ria persistente entre sess\u00f5es",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: MEMORY.md"
+      ]
+    },
+    "doc:MULTI-AGENT": {
+      "id": "doc:MULTI-AGENT",
+      "type": "ResourceType.DOCUMENT",
+      "name": "MULTI-AGENT",
+      "path": "docs\\MULTI-AGENT.md",
+      "description": "> Guia completo para trabalhar com multi-agent orchestration (Strix framework)",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: MULTI-AGENT.md"
+      ]
+    },
+    "doc:PERFORMANCE_TUNING": {
+      "id": "doc:PERFORMANCE_TUNING",
+      "type": "ResourceType.DOCUMENT",
+      "name": "PERFORMANCE_TUNING",
+      "path": "docs\\PERFORMANCE_TUNING.md",
+      "description": "Guia completo de otimiza\u00e7\u00e3o de performance para o AI Development System.",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: PERFORMANCE_TUNING.md"
+      ]
+    },
+    "doc:REA_SECURITY_GUIDE": {
+      "id": "doc:REA_SECURITY_GUIDE",
+      "type": "ResourceType.DOCUMENT",
+      "name": "REA_SECURITY_GUIDE",
+      "path": "docs\\REA_SECURITY_GUIDE.md",
+      "description": "Este guia documenta a implementa\u00e7\u00e3o de capacidades de **Engenharia Reversa Assistida por IA** (REA) e **Defesa contra REAs** (BLA) no AI Development System.",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: REA_SECURITY_GUIDE.md"
+      ]
+    },
+    "doc:SECURITY": {
+      "id": "doc:SECURITY",
+      "type": "ResourceType.DOCUMENT",
+      "name": "SECURITY",
+      "path": "docs\\SECURITY.md",
+      "description": "> **Purpose:** Define security guidelines, threat model, and response procedures.",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: SECURITY.md"
+      ]
+    },
+    "doc:STRIX_ORCHESTRATOR": {
+      "id": "doc:STRIX_ORCHESTRATOR",
+      "type": "ResourceType.DOCUMENT",
+      "name": "STRIX_ORCHESTRATOR",
+      "path": "docs\\STRIX_ORCHESTRATOR.md",
+      "description": "> Multi-agent orchestration engine for parallel workflow execution",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: STRIX_ORCHESTRATOR.md"
+      ]
+    },
+    "doc:TASTE_SKILL_FRAMEWORK": {
+      "id": "doc:TASTE_SKILL_FRAMEWORK",
+      "type": "ResourceType.DOCUMENT",
+      "name": "TASTE_SKILL_FRAMEWORK",
+      "path": "docs\\TASTE_SKILL_FRAMEWORK.md",
+      "description": "> Universal skill management, discovery, and validation system",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: TASTE_SKILL_FRAMEWORK.md"
+      ]
+    },
+    "doc:TROUBLESHOOTING_GUIDE": {
+      "id": "doc:TROUBLESHOOTING_GUIDE",
+      "type": "ResourceType.DOCUMENT",
+      "name": "TROUBLESHOOTING_GUIDE",
+      "path": "docs\\TROUBLESHOOTING_GUIDE.md",
+      "description": "Solu\u00e7\u00f5es para problemas comuns no AI Development System.",
+      "capabilities": [
+        "reference",
+        "documentation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "markdown"
+      },
+      "usage_examples": [
+        "# Consulte: TROUBLESHOOTING_GUIDE.md"
+      ]
+    },
+    "test:api.test": {
+      "id": "test:api.test",
+      "type": "ResourceType.TEST",
+      "name": "api.test.ts",
+      "path": "tests\\api.test.ts",
+      "description": "Teste: api.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- api.test.ts"
+      ]
+    },
+    "test:claude-mem.test": {
+      "id": "test:claude-mem.test",
+      "type": "ResourceType.TEST",
+      "name": "claude-mem.test.ts",
+      "path": "tests\\claude-mem.test.ts",
+      "description": "Teste: claude-mem.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- claude-mem.test.ts"
+      ]
+    },
+    "test:config.test": {
+      "id": "test:config.test",
+      "type": "ResourceType.TEST",
+      "name": "config.test.ts",
+      "path": "tests\\config.test.ts",
+      "description": "Teste: config.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- config.test.ts"
+      ]
+    },
+    "test:integration.test": {
+      "id": "test:integration.test",
+      "type": "ResourceType.TEST",
+      "name": "integration.test.ts",
+      "path": "tests\\integration.test.ts",
+      "description": "Teste: integration.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- integration.test.ts"
+      ]
+    },
+    "test:laya.test": {
+      "id": "test:laya.test",
+      "type": "ResourceType.TEST",
+      "name": "laya.test.ts",
+      "path": "tests\\laya.test.ts",
+      "description": "Teste: laya.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- laya.test.ts"
+      ]
+    },
+    "test:llm.test": {
+      "id": "test:llm.test",
+      "type": "ResourceType.TEST",
+      "name": "llm.test.ts",
+      "path": "tests\\llm.test.ts",
+      "description": "Teste: llm.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- llm.test.ts"
+      ]
+    },
+    "test:memory-service-internals.test": {
+      "id": "test:memory-service-internals.test",
+      "type": "ResourceType.TEST",
+      "name": "memory-service-internals.test.ts",
+      "path": "tests\\memory-service-internals.test.ts",
+      "description": "Teste: memory-service-internals.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- memory-service-internals.test.ts"
+      ]
+    },
+    "test:observability.test": {
+      "id": "test:observability.test",
+      "type": "ResourceType.TEST",
+      "name": "observability.test.ts",
+      "path": "tests\\observability.test.ts",
+      "description": "Teste: observability.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- observability.test.ts"
+      ]
+    },
+    "test:skill-framework-internals.test": {
+      "id": "test:skill-framework-internals.test",
+      "type": "ResourceType.TEST",
+      "name": "skill-framework-internals.test.ts",
+      "path": "tests\\skill-framework-internals.test.ts",
+      "description": "Teste: skill-framework-internals.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- skill-framework-internals.test.ts"
+      ]
+    },
+    "test:store.test": {
+      "id": "test:store.test",
+      "type": "ResourceType.TEST",
+      "name": "store.test.ts",
+      "path": "tests\\store.test.ts",
+      "description": "Teste: store.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- store.test.ts"
+      ]
+    },
+    "test:strix-internals.test": {
+      "id": "test:strix-internals.test",
+      "type": "ResourceType.TEST",
+      "name": "strix-internals.test.ts",
+      "path": "tests\\strix-internals.test.ts",
+      "description": "Teste: strix-internals.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- strix-internals.test.ts"
+      ]
+    },
+    "test:strix.test": {
+      "id": "test:strix.test",
+      "type": "ResourceType.TEST",
+      "name": "strix.test.ts",
+      "path": "tests\\strix.test.ts",
+      "description": "Teste: strix.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- strix.test.ts"
+      ]
+    },
+    "test:taste-skill.test": {
+      "id": "test:taste-skill.test",
+      "type": "ResourceType.TEST",
+      "name": "taste-skill.test.ts",
+      "path": "tests\\taste-skill.test.ts",
+      "description": "Teste: taste-skill.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- taste-skill.test.ts"
+      ]
+    },
+    "test:workflow-service.test": {
+      "id": "test:workflow-service.test",
+      "type": "ResourceType.TEST",
+      "name": "workflow-service.test.ts",
+      "path": "tests\\workflow-service.test.ts",
+      "description": "Teste: workflow-service.test.ts",
+      "capabilities": [
+        "testing",
+        "validation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "test_type": "ts"
+      },
+      "usage_examples": [
+        "npm test -- workflow-service.test.ts"
+      ]
+    },
+    "config:agent-registry": {
+      "id": "config:agent-registry",
+      "type": "ResourceType.CONFIG",
+      "name": "agent-registry.yml",
+      "path": "config\\agent-registry.yml",
+      "description": "Configura\u00e7\u00e3o: agent-registry.yml",
+      "capabilities": [
+        "configuration"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "yml"
+      },
+      "usage_examples": []
+    },
+    "config:memory.config": {
+      "id": "config:memory.config",
+      "type": "ResourceType.CONFIG",
+      "name": "memory.config.ts",
+      "path": "config\\memory.config.ts",
+      "description": "Configura\u00e7\u00e3o: memory.config.ts",
+      "capabilities": [
+        "configuration"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "ts"
+      },
+      "usage_examples": []
+    },
+    "config:notifications.config": {
+      "id": "config:notifications.config",
+      "type": "ResourceType.CONFIG",
+      "name": "notifications.config.ts",
+      "path": "config\\notifications.config.ts",
+      "description": "Configura\u00e7\u00e3o: notifications.config.ts",
+      "capabilities": [
+        "configuration"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "ts"
+      },
+      "usage_examples": []
+    },
+    "config:orchestrator.config": {
+      "id": "config:orchestrator.config",
+      "type": "ResourceType.CONFIG",
+      "name": "orchestrator.config.ts",
+      "path": "config\\orchestrator.config.ts",
+      "description": "Configura\u00e7\u00e3o: orchestrator.config.ts",
+      "capabilities": [
+        "configuration"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "ts"
+      },
+      "usage_examples": []
+    },
+    "config:skills.config": {
+      "id": "config:skills.config",
+      "type": "ResourceType.CONFIG",
+      "name": "skills.config.ts",
+      "path": "config\\skills.config.ts",
+      "description": "Configura\u00e7\u00e3o: skills.config.ts",
+      "capabilities": [
+        "configuration"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "ts"
+      },
+      "usage_examples": []
+    },
+    "example:01-multi-agent-workflow": {
+      "id": "example:01-multi-agent-workflow",
+      "type": "ResourceType.EXAMPLE",
+      "name": "01-multi-agent-workflow.ts",
+      "path": "examples\\01-multi-agent-workflow.ts",
+      "description": "Exemplo: 01-multi-agent-workflow.ts",
+      "capabilities": [
+        "example",
+        "demonstration"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "type": "ts"
+      },
+      "usage_examples": [
+        "# Execute: 01-multi-agent-workflow.ts"
+      ]
+    },
+    "example:02-realtime-monitoring": {
+      "id": "example:02-realtime-monitoring",
+      "type": "ResourceType.EXAMPLE",
+      "name": "02-realtime-monitoring.ts",
+      "path": "examples\\02-realtime-monitoring.ts",
+      "description": "Exemplo: 02-realtime-monitoring.ts",
+      "capabilities": [
+        "example",
+        "demonstration"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "type": "ts"
+      },
+      "usage_examples": [
+        "# Execute: 02-realtime-monitoring.ts"
+      ]
+    },
+    "example:03-data-pipeline": {
+      "id": "example:03-data-pipeline",
+      "type": "ResourceType.EXAMPLE",
+      "name": "03-data-pipeline.ts",
+      "path": "examples\\03-data-pipeline.ts",
+      "description": "Exemplo: 03-data-pipeline.ts",
+      "capabilities": [
+        "example",
+        "demonstration"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "type": "ts"
+      },
+      "usage_examples": [
+        "# Execute: 03-data-pipeline.ts"
+      ]
+    },
+    "example:04-notifications-with-actions": {
+      "id": "example:04-notifications-with-actions",
+      "type": "ResourceType.EXAMPLE",
+      "name": "04-notifications-with-actions.ts",
+      "path": "examples\\04-notifications-with-actions.ts",
+      "description": "Exemplo: 04-notifications-with-actions.ts",
+      "capabilities": [
+        "example",
+        "demonstration"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "type": "ts"
+      },
+      "usage_examples": [
+        "# Execute: 04-notifications-with-actions.ts"
+      ]
+    },
+    "template:.env": {
+      "id": "template:.env",
+      "type": "ResourceType.TEMPLATE",
+      "name": ".env.example",
+      "path": "templates\\.env.example",
+      "description": "Template: .env.example",
+      "capabilities": [
+        "templating",
+        "generation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "example"
+      },
+      "usage_examples": []
+    },
+    "template:.gitignore": {
+      "id": "template:.gitignore",
+      "type": "ResourceType.TEMPLATE",
+      "name": ".gitignore",
+      "path": "templates\\.gitignore",
+      "description": "Template: .gitignore",
+      "capabilities": [
+        "templating",
+        "generation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "unknown"
+      },
+      "usage_examples": []
+    },
+    "template:adr-template": {
+      "id": "template:adr-template",
+      "type": "ResourceType.TEMPLATE",
+      "name": "adr-template.md",
+      "path": "templates\\adr-template.md",
+      "description": "Template: adr-template.md",
+      "capabilities": [
+        "templating",
+        "generation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "md"
+      },
+      "usage_examples": []
+    },
+    "template:bug-report-template": {
+      "id": "template:bug-report-template",
+      "type": "ResourceType.TEMPLATE",
+      "name": "bug-report-template.md",
+      "path": "templates\\bug-report-template.md",
+      "description": "Template: bug-report-template.md",
+      "capabilities": [
+        "templating",
+        "generation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "md"
+      },
+      "usage_examples": []
+    },
+    "template:docker-compose": {
+      "id": "template:docker-compose",
+      "type": "ResourceType.TEMPLATE",
+      "name": "docker-compose.yml",
+      "path": "templates\\docker-compose.yml",
+      "description": "Template: docker-compose.yml",
+      "capabilities": [
+        "templating",
+        "generation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "yml"
+      },
+      "usage_examples": []
+    },
+    "template:Dockerfile": {
+      "id": "template:Dockerfile",
+      "type": "ResourceType.TEMPLATE",
+      "name": "Dockerfile",
+      "path": "templates\\Dockerfile",
+      "description": "Template: Dockerfile",
+      "capabilities": [
+        "templating",
+        "generation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "unknown"
+      },
+      "usage_examples": []
+    },
+    "template:.github\\workflows\\deploy-production": {
+      "id": "template:.github\\workflows\\deploy-production",
+      "type": "ResourceType.TEMPLATE",
+      "name": "deploy-production.yml",
+      "path": "templates\\.github\\workflows\\deploy-production.yml",
+      "description": "Template: deploy-production.yml",
+      "capabilities": [
+        "templating",
+        "generation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "yml"
+      },
+      "usage_examples": []
+    },
+    "template:.github\\workflows\\deploy-staging": {
+      "id": "template:.github\\workflows\\deploy-staging",
+      "type": "ResourceType.TEMPLATE",
+      "name": "deploy-staging.yml",
+      "path": "templates\\.github\\workflows\\deploy-staging.yml",
+      "description": "Template: deploy-staging.yml",
+      "capabilities": [
+        "templating",
+        "generation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "yml"
+      },
+      "usage_examples": []
+    },
+    "template:.github\\workflows\\test": {
+      "id": "template:.github\\workflows\\test",
+      "type": "ResourceType.TEMPLATE",
+      "name": "test.yml",
+      "path": "templates\\.github\\workflows\\test.yml",
+      "description": "Template: test.yml",
+      "capabilities": [
+        "templating",
+        "generation"
+      ],
+      "dependencies": [],
+      "metadata": {
+        "format": "yml"
+      },
+      "usage_examples": []
+    }
+  }
+}

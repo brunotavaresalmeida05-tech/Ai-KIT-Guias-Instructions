@@ -1,0 +1,73 @@
+vision_apis:
+  - name: "Clarifai"
+    category: "computer_vision"
+    base_url: "https://api.clarifai.com/v2"
+    auth: "apiKey / OAuth"
+    free_tier: true
+    features:
+      - "Image classification"
+      - "Object detection"
+      - "Facial recognition"
+      - "Custom models"
+      - "Content moderation"
+
+  - name: "Imagga"
+    category: "image_recognition"
+    base_url: "https://api.imagga.com/v2"
+    auth: "apiKey"
+    free_tier: true
+    features:
+      - "Image tagging"
+      - "Visual search"
+      - "NSFW detection"
+      - "Color extraction"
+
+  - name: "Azure Computer Vision"
+    category: "computer_vision"
+    provider: "Microsoft Azure"
+    base_url: "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2"
+    auth: "subscription key"
+    free_tier: true
+    features:
+      - "Image analysis"
+      - "OCR"
+      - "Face detection"
+      - "Object detection"
+      - "Image classification"
+
+  - name: "Google Vision AI"
+    category: "computer_vision"
+    provider: "Google Cloud"
+    base_url: "https://vision.googleapis.com/v1/images:annotate"
+    auth: "API key"
+    free_tier: true
+    features:
+      - "Label detection"
+      - "Face detection"
+      - "Landmark detection"
+      - "OCR"
+      - "Safe search"
+
+  - name: "Amazon Rekognition"
+    category: "computer_vision"
+    provider: "AWS"
+    base_url: "https://rekognition.<region>.amazonaws.com"
+    auth: "AWS credentials"
+    features:
+      - "Object detection"
+      - "Facial analysis"
+      - "Text detection"
+      - "Person tracking"
+      - "Celebrity recognition"
+
+  - name: "DeepFace"
+    category: "facial_analysis"
+    provider: "Serban dan"
+    base_url: "https://api.deepface.io"
+    auth: "apiKey"
+    free_tier: true
+    features:
+      - "Face recognition"
+      - "Facial attributes"
+      - "Face verification"
+      - "Face detection"

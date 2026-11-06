@@ -1,0 +1,110 @@
+api_integrations:
+  - name: "VirusTotal"
+    base_url: "https://www.virustotal.com/api/v3"
+    endpoints:
+      - path: "/files/{id}"
+        method: "GET"
+        rate_limit: "4/min (public), 60/sec (premium)"
+      - path: "/urls/{id}"
+        method: "GET"
+        rate_limit: "4/min (public)"
+      - path: "/intelligence/search"
+        method: "GET"
+        rate_limit: "120/min (premium)"
+    auth:
+      type: "api_key_header"
+      header: "x-apikey"
+    response_format: "json"
+    python_example: |
+      import requests
+      headers = {"x-apikey": "YOUR_API_KEY"}
+      url = "https://www.virustotal.com/api/v3/files/{file_id}"
+      response = requests.get(url, headers=headers)
+      data = response.json()
+
+  - name: "AlienVault OTX"
+    base_url: "https://otx.alienvault.com/api/v1"
+    endpoints:
+      - path: "/pulses"
+        method: "GET"
+        rate_limit: "120/min"
+      - path: "/indicators/{type}/{value}"
+        method: "GET"
+        rate_limit: "120/min"
+    auth:
+      type: "api_key_header"
+      header: "X-OTX-API-KEY"
+    response_format: "json"
+    python_example: |
+      import requests
+      headers = {"X-OTX-API-KEY": "YOUR_API_KEY"}
+      url = "https://otx.alienvault.com/api/v1/pulses"
+      response = requests.get(url, headers=headers)
+
+  - name: "GREYNOISE"
+    base_url: "https://api.greynoise.io/v3"
+    endpoints:
+      - path: "/ip/{ip}"
+        method: "GET"
+        rate_limit: "150/min (community), unlimited (enterprise)"
+    auth:
+      type: "api_key_header"
+      header: "key"
+    response_format: "json"
+    python_example: |
+      import requests
+      headers = {"key": "YOUR_API_KEY"}
+      url = "https://api.greynoise.io/v3/ip/8.8.8.8"
+      response = requests.get(url, headers=headers)
+
+  - name: "ThreatMiner"
+    base_url: "https://api.threatminer.com/v2"
+    endpoints:
+      - path: "/domains/{domain}"
+        method: "GET"
+        rate_limit: "300/min"
+    auth:
+      type: "query_param"
+    response_format: "json"
+    python_example: |
+      import requests
+      url = "https://api.threatminer.com/v2/domain.php?d=example.com&rt=5"
+
+  - name: "Abuse.ch URLhaus"
+    base_url: "https://urlhaus-api.abuse.ch"
+    endpoints:
+      - path: "/v1/host/"
+        method: "GET"
+        rate_limit: "None specified"
+    auth:
+      type: "none"
+    response_format: "json"
+    python_example: |
+      import requests
+      url = "https://urlhaus-api.abuse.ch/v1/host/example.com"
+      response = requests.get(url)
+
+workflows:
+  - name: "ioc-enrichment"
+    description: "Enrich IOCs with multiple threat intel sources"
+    steps:
+      - "vt_lookup"
+      - "otx_check"
+      - "greynoise_reputation"
+      - "combine_results"
+  
+  - name: "threat-feed-collection"
+    description: "Collect IOCs from multiple feeds"
+    steps:
+      - "fetch_feeds"
+      - "deduplicate"
+      - "validate"
+      - "export_stix"
+  
+  - name: "campaign-tracking"
+    description: "Track threat campaigns across feeds"
+    steps:
+      - "collect_campaign_iocs"
+      - "correlate_tactics"
+      - "generate_report"
+      - "share_with_misp"

@@ -1,0 +1,7 @@
+# Knowledge Bases
+- name: "DFIR Artifact Repository"
+  url: "https://github.com/dfir-artifact/artifact-repository"
+- name: "Windows Events Attack Samples"
+  url: "https://github.com/WindowsEvents/Windows-Attack-Samples"
+- name: "Awesome Event IDs"
+  url: "https://github.com/FalconFlow/awesome-event-ids"

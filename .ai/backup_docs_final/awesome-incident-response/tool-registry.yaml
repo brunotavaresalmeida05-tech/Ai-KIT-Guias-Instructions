@@ -1,0 +1,13 @@
+# Awesome Incident Response - Tool Registry
+categories:
+  - name: "Evidence Collection"
+    tools:
+      - name: "KAPE"
+        platform: "Windows"
+        use_case: "Artifact triage"
+      - name: "Velociraptor"
+        platform: "Cross-platform"
+        use_case: "Endpoint collection"
+      - name: "FastIR Collector"
+        platform: "Windows"
+        use_case: "Live Windows collection"

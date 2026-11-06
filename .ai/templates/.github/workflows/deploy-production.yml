@@ -1,0 +1,153 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to deploy (e.g., 1.0.0)'
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production  # Requires approval
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: "v${{ github.event.inputs.version }}"
+
+      - name: Backup database
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ubuntu
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            cd /app
+            BACKUP_FILE="backup_$(date +%s).sql"
+            pg_dump $DATABASE_URL > $BACKUP_FILE
+            gzip $BACKUP_FILE
+            aws s3 cp ${BACKUP_FILE}.gz s3://${{ secrets.AWS_S3_BUCKET }}/backups/
+
+      - name: Build Docker image
+        run: |
+          docker build -t myapp:${{ github.event.inputs.version }} .
+          docker tag myapp:${{ github.event.inputs.version }} myapp:latest
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push to registry
+        run: docker push myapp:${{ github.event.inputs.version }}
+
+      - name: Deploy to production (Blue-Green)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ubuntu
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            cd /app
+
+            # Stop and remove green deployment if exists
+            docker-compose -f docker-compose.prod.yml stop api-green || true
+            docker-compose -f docker-compose.prod.yml rm -f api-green || true
+
+            # Pull new image
+            docker pull myapp:${{ github.event.inputs.version }}
+
+            # Start green deployment
+            docker-compose -f docker-compose.prod.yml up -d api-green
+            sleep 15
+
+            # Run migrations on green
+            docker-compose exec -T api-green npm run migrate || true
+
+            # Run smoke tests
+            HEALTH=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3001/health)
+            if [ $HEALTH -ne 200 ]; then
+              echo "Health check failed"
+              docker-compose stop api-green
+              exit 1
+            fi
+
+      - name: Switch traffic to green
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ubuntu
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            cd /app
+            # Swap blue and green
+            docker-compose -f docker-compose.prod.yml stop api-blue || true
+            docker-compose -f docker-compose.prod.yml rm -f api-blue || true
+            docker-compose -f docker-compose.prod.yml up -d
+            sleep 10
+
+      - name: Verify production health
+        run: |
+          for i in {1..5}; do
+            HEALTH=$(curl -s -o /dev/null -w "%{http_code}" https://api.example.com/health)
+            if [ $HEALTH -eq 200 ]; then
+              echo "✅ Production health check passed"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "❌ Production health check failed"
+          exit 1
+
+      - name: Monitor for 1 hour
+        run: |
+          for i in {1..12}; do
+            ERROR_RATE=$(curl -s https://api.example.com/metrics | grep error_rate | head -1 | awk '{print $2}' | tr -d '%')
+            if (( $(echo "$ERROR_RATE > 5" | bc -l) )); then
+              echo "❌ Error rate too high: $ERROR_RATE%"
+              exit 1
+            fi
+            echo "✅ Monitor check $i: Error rate $ERROR_RATE%"
+            sleep 300
+          done
+
+      - name: Notify Slack (Success)
+        if: success()
+        uses: slackapi/slack-github-action@v1
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          payload: |
+            {
+              "text": "🚀 Production deployment successful",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Production Deploy Complete*\nVersion: ${{ github.event.inputs.version }}\nAuthor: ${{ github.actor }}"
+                  }
+                }
+              ]
+            }
+
+      - name: Notify Slack (Failure)
+        if: failure()
+        uses: slackapi/slack-github-action@v1
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          payload: |
+            {
+              "text": "🚨 Production deployment failed",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Production Deploy Failed*\nVersion: ${{ github.event.inputs.version }}\nCheck logs - rollback may be needed"
+                  }
+                }
+              ]
+            }

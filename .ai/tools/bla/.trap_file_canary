@@ -1,0 +1,6 @@
+{
+  "type": "trap_file",
+  "value": "e7cea09f9cf1e584753c70a941039a32",
+  "created": 1793660681.6531005,
+  "purpose": "Detect access to trap_file"
+}

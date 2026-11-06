@@ -1,0 +1,364 @@
+# Runtime agent seeds. Skills refer to guidance documents, not automatic tools or handlers.
+# Actual execution requires a registered handler and host authorization.
+version: '2.0'
+registry_name: Strix Multi-Agent System
+created_at: '2026-10-08'
+agents:
+  research-agent:
+    id: agent-research-001
+    role: Information Researcher
+    description: Gathers context, specifications, and best practices
+    skills:
+      - research-agent
+      - documentation-builder
+      - architecture-first
+    capabilities:
+      - parallelizable: true
+    constraints:
+      - max_parallel: 1
+      - timeout_minutes: 30
+      - dependencies: []
+    input_schema:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Research question or topic
+        sources:
+          type: array
+          description: Preferred sources (docs, APIs, etc)
+        depth:
+          type: string
+          enum:
+            - shallow
+            - standard
+            - deep
+    output_schema:
+      type: object
+      properties:
+        findings:
+          type: array
+          description: Key findings with sources
+        code_examples:
+          type: array
+          description: Relevant code samples
+        guidelines:
+          type: array
+          description: Best practices and guidelines
+  test-agent:
+    id: agent-test-001
+    role: Test Developer (TDD)
+    description: Writes failing tests first (TDD methodology)
+    skills:
+      - test-generator
+      - tdd-workflow
+      - qa-testing
+    capabilities:
+      - parallelizable: true
+    constraints:
+      - max_parallel: 1
+      - timeout_minutes: 20
+      - dependencies: []
+    input_schema:
+      type: object
+      properties:
+        feature:
+          type: string
+          description: Feature name and requirements
+        framework:
+          type: string
+          enum:
+            - jest
+            - vitest
+            - mocha
+            - pytest
+        coverage_target:
+          type: number
+          description: Target test coverage percentage
+    output_schema:
+      type: object
+      properties:
+        test_file:
+          type: string
+          description: Path to generated test file
+        test_cases:
+          type: integer
+          description: Number of test cases
+        status:
+          type: string
+          enum:
+            - failing
+            - partial
+            - ready
+  security-agent:
+    id: agent-security-001
+    role: Security Auditor
+    description: OWASP compliance review and vulnerability detection
+    skills:
+      - security-audit
+      - security-review
+    capabilities:
+      - parallelizable: true
+    constraints:
+      - max_parallel: 1
+      - timeout_minutes: 30
+      - dependencies: []
+    input_schema:
+      type: object
+      properties:
+        scope:
+          type: string
+          description: Feature or code to audit
+        owasp_version:
+          type: string
+          default: '2021'
+        risk_level:
+          type: string
+          enum:
+            - low
+            - medium
+            - high
+            - critical
+    output_schema:
+      type: object
+      properties:
+        vulnerabilities:
+          type: array
+        remediation_plan:
+          type: string
+        compliance_checklist:
+          type: object
+        risk_score:
+          type: number
+  backend-agent:
+    id: agent-backend-001
+    role: Backend Developer
+    description: Implements APIs and business logic
+    skills:
+      - code-review
+      - implementation-assistant
+      - architecture-first
+    capabilities:
+      - parallelizable: false
+    constraints:
+      - max_parallel: 1
+      - timeout_minutes: 120
+      - dependencies:
+          - research-agent
+          - test-agent
+          - security-agent
+    input_schema:
+      type: object
+      properties:
+        specification:
+          type: string
+          description: API specification and requirements
+        tests:
+          type: string
+          description: Test file to make pass
+        security_requirements:
+          type: object
+    output_schema:
+      type: object
+      properties:
+        implementation_files:
+          type: array
+        tests_passing:
+          type: boolean
+        coverage:
+          type: number
+  frontend-agent:
+    id: agent-frontend-001
+    role: Frontend Developer
+    description: Implements UI components and user interactions
+    skills:
+      - implementation-assistant
+      - qa-testing
+      - code-review
+    capabilities:
+      - parallelizable: false
+    constraints:
+      - max_parallel: 1
+      - timeout_minutes: 120
+      - dependencies:
+          - backend-agent
+    input_schema:
+      type: object
+      properties:
+        design:
+          type: string
+          description: UI design or mockup reference
+        api_spec:
+          type: object
+          description: Backend API specification
+        accessibility_level:
+          type: string
+          enum:
+            - A
+            - AA
+            - AAA
+    output_schema:
+      type: object
+      properties:
+        component_files:
+          type: array
+        wcag_compliance:
+          type: string
+        performance_metrics:
+          type: object
+  qa-agent:
+    id: agent-qa-001
+    role: QA Engineer
+    description: End-to-end testing and automation
+    skills:
+      - qa-testing
+      - test-generator
+    capabilities:
+      - parallelizable: false
+    constraints:
+      - max_parallel: 1
+      - timeout_minutes: 45
+      - dependencies:
+          - frontend-agent
+    input_schema:
+      type: object
+      properties:
+        feature:
+          type: string
+          description: Feature to test
+        scenarios:
+          type: array
+          description: Test scenarios
+    output_schema:
+      type: object
+      properties:
+        e2e_tests:
+          type: string
+        test_results:
+          type: object
+        performance_report:
+          type: object
+  review-agent:
+    id: agent-review-001
+    role: Code Reviewer
+    description: Senior code quality and architecture review
+    skills:
+      - code-review
+      - architecture-first
+      - refactor-guardrail
+    capabilities:
+      - parallelizable: false
+    constraints:
+      - max_parallel: 1
+      - timeout_minutes: 30
+      - dependencies:
+          - frontend-agent
+    input_schema:
+      type: object
+      properties:
+        code_files:
+          type: array
+          description: Files to review
+        review_depth:
+          type: string
+          enum:
+            - standard
+            - deep
+            - security-focused
+    output_schema:
+      type: object
+      properties:
+        blockers:
+          type: array
+        suggestions:
+          type: array
+        approval:
+          type: string
+          enum:
+            - approved
+            - changes_requested
+            - rejected
+  devops-agent:
+    id: agent-devops-001
+    role: DevOps Engineer
+    description: Deployment orchestration and CI/CD
+    skills:
+      - deploy-manager
+      - ci-cd-release
+      - devops-secops
+    capabilities:
+      - parallelizable: false
+    constraints:
+      - max_parallel: 1
+      - timeout_minutes: 60
+      - dependencies:
+          - qa-agent
+          - review-agent
+    input_schema:
+      type: object
+      properties:
+        environment:
+          type: string
+          enum:
+            - staging
+            - production
+        version:
+          type: string
+        rollback_plan:
+          type: boolean
+    output_schema:
+      type: object
+      properties:
+        deployment_log:
+          type: string
+        status:
+          type: string
+          enum:
+            - success
+            - failure
+            - rolled_back
+        monitoring_url:
+          type: string
+skill_mappings:
+  research-agent:
+    - research-agent
+    - documentation-builder
+    - architecture-first
+  test-agent:
+    - test-generator
+    - tdd-workflow
+    - qa-testing
+  security-agent:
+    - security-audit
+    - security-review
+  backend-agent:
+    - code-review
+    - implementation-assistant
+    - architecture-first
+  frontend-agent:
+    - implementation-assistant
+    - qa-testing
+    - code-review
+  qa-agent:
+    - qa-testing
+    - test-generator
+  review-agent:
+    - code-review
+    - architecture-first
+    - refactor-guardrail
+  devops-agent:
+    - deploy-manager
+    - ci-cd-release
+    - devops-secops
+constraints:
+  max_concurrent_agents: 3
+  default_timeout_minutes: 30
+  memory_per_agent_mb: 512
+  enable_caching: true
+  cache_ttl_minutes: 60
+monitoring:
+  enabled: true
+  log_level: info
+  metrics_collection: true
+  performance_tracking: true
+  error_tracking: true

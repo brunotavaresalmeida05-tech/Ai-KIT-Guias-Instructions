@@ -1,0 +1,114 @@
+ml_ai_apis:
+  - name: "Hugging Face Inference API"
+    category: "ml"
+    base_url: "https://huggingface.co/inference-api"
+    auth: "apiKey (HF tokens)"
+    free_tier: true
+    limits: "Free tier available"
+    features:
+      - "NLP models"
+      - "Computer Vision"
+      - "Audio processing"
+      - "Open-source models"
+    python_example: |
+      import requests
+      API_URL = "https://api-inference.huggingface.co/models/gpt2"
+      headers = {"Authorization": "Bearer HF_TOKEN"}
+      def query(payload):
+          response = requests.post(API_URL, headers=headers, json=payload)
+          return response.json()
+      output = query({"inputs": "Hello, my name is"})
+
+  - name: "OpenRouter"
+    category: "llm"
+    base_url: "https://openrouter.ai/api/v1"
+    auth: "apiKey"
+    free_tier: true
+    models: "300+ LLMs"
+    features:
+      - "Unified API endpoint"
+      - "OpenAI compatible"
+      - "Multiple providers"
+    python_example: |
+      import openai
+      client = openai.OpenAI(api_key="YOUR_KEY", base_url="https://openrouter.ai/api/v1")
+      response = client.chat.completions.create(
+          model="openai/gpt-4",
+          messages=[{"role": "user", "content": "Hello!"}]
+      )
+
+  - name: "Cohere"
+    category: "nlp"
+    base_url: "https://api.cohere.ai/v1"
+    auth: "apiKey"
+    free_tier: true
+    features:
+      - "Text generation"
+      - "Embeddings"
+      - "Classification"
+      - "Summarization"
+    python_example: |
+      import cohere
+      co = cohere.Client('YOUR_API_KEY')
+      response = co.generate(prompt='Explain quantum computing:', max_tokens=200)
+
+  - name: "Mistral AI"
+    category: "llm"
+    base_url: "https://api.mistral.ai/v1"
+    auth: "apiKey"
+    free_tier: true
+    models: ["mistral-tiny", "mistral-small", "mistral-medium"]
+    features:
+      - "Efficient LLMs"
+      - "Function calling"
+      - "Multilingual"
+    python_example: |
+      from mistralai import Mistral
+      client = Mistral(api_key="YOUR_KEY")
+      response = client.chat.complete(
+          model="mistral-small",
+          messages=[{"role": "user", "content": "Hello!"}]
+      )
+
+  - name: "Groq"
+    category: "inference"
+    base_url: "https://api.groq.com/openai/v1"
+    auth: "apiKey"
+    free_tier: true
+    models: ["llama3-70b", "mixtral-8x7b", "gemma-7b"]
+    features:
+      - "Fast inference"
+      - "OpenAI compatible"
+      - "LLaMA/Mixtral support"
+
+  - name: "Together AI"
+    category: "llm"
+    base_url: "https://api.together.xyz"
+    auth: "apiKey"
+    free_tier: true
+    features:
+      - "Open-source LLMs"
+      - "Llama, Qwen, DeepSeek"
+      - "Custom fine-tuning"
+
+  - name: "Replicate"
+    category: "ml_models"
+    base_url: "https://api.replicate.com/v1"
+    auth: "apiKey"
+    free_tier: true
+    features:
+      - "Image generation"
+      - "LLMs"
+      - "Audio models"
+      - "Video generation"
+
+  - name: "DeepAI"
+    category: "multimodal"
+    base_url: "https://api.deepai.org"
+    auth: "apiKey"
+    free_tier: true
+    features:
+      - "Text generation"
+      - "Image processing"
+      - "Video generation"
+      - "Sentiment analysis"

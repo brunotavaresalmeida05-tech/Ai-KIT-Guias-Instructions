@@ -1,0 +1,8 @@
+# Detection Rules
+sigma_rules:
+  - id: "sigma-001"
+    title: "Suspicious PowerShell"
+    severity: "high"
+  - id: "sigma-002"
+    title: "LSASS Access"
+    severity: "critical"

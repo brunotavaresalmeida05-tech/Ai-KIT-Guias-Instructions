@@ -1,0 +1,9 @@
+# Playbooks
+cloud:
+  - name: "AWS IR Runbook"
+    stages: [detection, containment, investigation, remediation]
+  - name: "Azure Security IR"
+    stages: [secure_scoring, threat_detection, incident_analysis]
+ransomware:
+  - name: "Ransomware Response"
+    stages: [containment, network_isolation, evidence_preservation]

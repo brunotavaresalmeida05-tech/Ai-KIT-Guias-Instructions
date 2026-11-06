@@ -1,0 +1,67 @@
+translation_apis:
+  - name: "LibreTranslate"
+    category: "translation"
+    base_url: "https://libretranslate.com/translate"
+    auth: "apiKey"
+    free_tier: true
+    languages: 17
+    features:
+      - "Open source"
+      - "Self-hostable"
+      - "No API key required for local"
+    endpoints:
+      - "/translate"
+      - "/languages"
+    python_example: |
+      import requests
+      url = "https://libretranslate.com/translate"
+      headers = {"Authorization": "Bearer YOUR_API_KEY"}
+      data = {
+          "q": "Hello world",
+          "source": "en",
+          "target": "es",
+          "format": "text"
+      }
+      response = requests.post(url, json=data, headers=headers)
+
+  - name: "Cloudmersive Translate"
+    category: "translation"
+    base_url: "https://api.cloudmersive.com/language/translate"
+    auth: "apiKey"
+    free_tier: true
+    languages: 172
+    features:
+      - "Large language coverage"
+      - "Neural translation"
+      - "Batch translation"
+
+  - name: "Linguatools"
+    category: "translation"
+    base_url: "https://api.linguatools.eu"
+    auth: "apiKey"
+    features:
+      - "Machine translation"
+      - "Post-editing assistance"
+      - "Translation memory"
+
+  - name: "MyMemory"
+    category: "translation"
+    base_url: "https://api.mymemory.translated.net"
+    auth: "email required"
+    features:
+      - "Translation memory based"
+      - "Unlimited for small texts"
+      - "Multiple language pairs"
+
+  - name: "Google Translate API"
+    category: "translation"
+    base_url: "https://translation.googleapis.com/language/translate/v2"
+    auth: "API key + OAuth"
+    free_tier: true
+    languages: 100+
+    pricing: "Per character"
+    features:
+      - "Neural machine translation"
+      - "Batch translation"
+      - "Language detection"
+      - "Glossary support"

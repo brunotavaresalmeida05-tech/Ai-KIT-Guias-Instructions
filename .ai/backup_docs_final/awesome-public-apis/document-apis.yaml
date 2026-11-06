@@ -1,0 +1,73 @@
+document_apis:
+  - name: "OCR.Space"
+    category: "ocr"
+    base_url: "https://api.ocr.space/parse/image"
+    auth: "apiKey"
+    free_tier: true
+    limits: "5000 calls/month"
+    features:
+      - "OCR for images"
+      - "PDF text extraction"
+      - "Multi-language support"
+      - "Table recognition"
+    python_example: |
+      import requests
+      url = "https://api.ocr.space/parse/image"
+      headers = {"apikey": "YOUR_API_KEY"}
+      with open("document.jpg", "rb") as f:
+          response = requests.post(url, headers=headers, files={"file": f})
+      result = response.json()
+
+  - name: "iLovePDF API"
+    category: "pdf"
+    base_url: "https://api.ilovepdf.com/v1"
+    auth: "apiKey"
+    free_tier: true
+    limits: "250 documents/month"
+    features:
+      - "PDF conversion"
+      - "Merge PDFs"
+      - "Split PDFs"
+      - "Compress PDF"
+      - "PDF to Word"
+      - "Word to PDF"
+
+  - name: "APITree"
+    category: "document_conversion"
+    base_url: "https://apitree.com/api"
+    auth: "apiKey"
+    features:
+      - "PDF to text"
+      - "Office to PDF"
+      - "Image to PDF"
+      - "PDF to image"
+
+  - name: "DocConverter"
+    category: "document_conversion"
+    base_url: "https://api.docconverter.com/v1"
+    auth: "apiKey"
+    features:
+      - "PDF conversion"
+      - "Document merging"
+      - "Format conversion"
+
+  - name: "PDF24"
+    category: "pdf"
+    base_url: "https://api.pdf24.org"
+    auth: "No auth required"
+    features:
+      - "PDF creation"
+      - "PDF conversion"
+      - "PDF manipulation"
+      - "Free service"
+
+  - name: "Cloudmersive"
+    category: "document_conversion"
+    base_url: "https://api.cloudmersive.com"
+    auth: "apiKey"
+    free_tier: true
+    features:
+      - "HTML to PDF"
+      - "URL to PDF"
+      - "Document conversion"
+      - "File format conversion"

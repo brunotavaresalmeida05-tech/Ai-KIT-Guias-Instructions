@@ -1,0 +1,50 @@
+﻿version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '04:00'
+      timezone: 'UTC'
+    open-pull-requests-limit: 10
+    labels: ['dependencies', 'automated']
+    groups:
+      dev-deps:
+        patterns:
+          - '@types/*'
+          - 'eslint*'
+          - 'jest*'
+          - 'ts-*'
+          - 'typescript'
+          - 'prettier*'
+          - 'nodemon'
+          - 'husky'
+          - 'lint-staged'
+          - 'gitleaks'
+          - 'license-checker'
+          - '@commitlint/*'
+        update-types: ['minor', 'patch']
+      prod-deps:
+        patterns:
+          - '*'
+          - '!@types/*'
+          - '!eslint*'
+          - '!jest*'
+          - '!ts-*'
+          - '!typescript'
+          - '!prettier*'
+          - '!nodemon'
+          - '!husky'
+          - '!lint-staged'
+          - '!gitleaks'
+          - '!license-checker'
+          - '!@commitlint/*'
+        update-types: ['patch']
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+    labels: ['dependencies', 'ci-cd', 'automated']

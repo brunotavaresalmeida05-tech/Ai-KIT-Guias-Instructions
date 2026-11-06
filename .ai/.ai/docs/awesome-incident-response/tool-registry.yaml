@@ -1,0 +1,66 @@
+categories:
+  - name: "Evidence Collection"
+    tools:
+      - name: "KAPE"
+        description: "Windows forensic triage tool - targets, modules, processing"
+        platform: "Windows"
+        license: "Open Source"
+        url: "https://github.com/EricTZhang/Kape"
+        
+      - name: "Velociraptor"
+        description: "Live response and forensic collection tool"
+        platform: "Cross-platform"
+        license: "Open Source"
+        url: "https://github.com/Velocidex/velociraptor"
+        
+      - name: "GRR Rapid Response"
+        description: "Google's low latency forensic client"
+        platform: "Linux/Windows/macOS"
+        license: "Open Source"
+        url: "https://github.com/google/grr"
+        
+      - name: "FastIR"
+        description: "Modular incident response collection framework"
+        platform: "Cross-platform"
+        license: "Open Source"
+        url: "https://github.com/FastIR/FastIR"
+  
+  - name: "Detection Rules"
+    tools:
+      - name: "Sigma"
+        description: "Universal SIEM detection rule format"
+        platform: "Cross-platform"
+        license: "Open Source"
+        url: "https://github.com/SigmaHQ/sigma"
+        
+      - name: "YARA"
+        description: "Pattern matching for malware researchers"
+        platform: "Cross-platform"
+        license: "Open Source"
+        url: "https://github.com/VirusTotal/yara"
+        
+      - name: "Chainsaw"
+        description: "Sigma rule translator for Windows event logs"
+        platform: "Windows"
+        license: "Open Source"
+        url: "https://github.com/Neo23x0/chainsaw"
+        
+      - name: "Hayabusa"
+        description: "Fast log analysis for Windows event logs"
+        platform: "Cross-platform"
+        license: "Open Source"
+        url: "https://github.com/HybridAnalysis/hayabusa"
+  
+  - name: "Memory Analysis"
+    tools:
+      - name: "Volatility"
+        description: "Memory forensics framework"
+        platform: "Cross-platform"
+        license: "Open Source"
+        url: "https://github.com/volatilityfoundation/volatility"
+        
+      - name: "LiME"
+        description: "Linux Memory Extractor kernel module"
+        platform: "Linux"
+        license: "Open Source"
+        url: "https://github.com/50andavert/limes"

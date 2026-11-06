@@ -1,0 +1,59 @@
+- name: "CompTIA Security+"
+  difficulty: "entry"
+  prerequisites: []
+  duration_hours: 40
+  price_usd: 370
+  focuses_on:
+    - network_security
+    - compliance
+    - threats_and_attacks
+    - architecture_and_design
+  next_path:
+    - name: "CEH"
+      type: "intermediate"
+    - name: "CISSP"
+      type: "advanced"
+
+- name: "Certified Ethical Hacker (CEH)"
+  difficulty: "intermediate"
+  prerequisites:
+    - "Security+"
+  duration_hours: 120
+  price_usd: 1197
+  focuses_on:
+    - ethical_hacking
+    - scan_and_discover
+    - system_hacking
+    - malware_threats
+  next_path:
+    - name: "OSCP"
+      type: "advanced"
+
+- name: "Offensive Security Certified Professional (OSCP)"
+  difficulty: "advanced"
+  prerequisites:
+    - "CEH"
+    - "Pentesting fundamentals"
+  duration_hours: 240
+  price_usd: 1499
+  focuses_on:
+    - penetration_testing
+    - exploit_development
+    - report_writing
+  next_path:
+    - name: "OSCE"
+      type: "expert"
+
+- name: "GIAC Certified Incident Handler (GCIH)"
+  difficulty: "intermediate"
+  prerequisites:
+    - "Security+"
+  duration_hours: 80
+  price_usd: 2199
+  focuses_on:
+    - incident_handling
+    - host_analysis
+    - network_forensics
+  next_path:
+    - name: "GCIA"
+      type: "advanced"

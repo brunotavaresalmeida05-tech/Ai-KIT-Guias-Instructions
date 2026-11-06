@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ai-kit
+  labels:
+    app.kubernetes.io/name: ai-kit
+    app.kubernetes.io/instance: ai-kit-dev
+    app.kubernetes.io/part-of: ai-development-system

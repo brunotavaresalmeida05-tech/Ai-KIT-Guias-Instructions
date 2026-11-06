@@ -1,0 +1,278 @@
+#!/usr/bin/env python3
+"""
+REA Static Analyzer - Ferramenta de análise estática para engenharia reversa
+Baseada em conceitos do projeto REA (morluto/rea)
+"""
+
+import sys
+import os
+import hashlib
+import struct
+import json
+from pathlib import Path
+from typing import Dict, List, Tuple, Optional
+import subprocess
+
+try:
+    import magic
+except ImportError:
+    magic = None
+
+class FileTypeInfo:
+    """Informações sobre o tipo de arquivo"""
+    def __init__(self, magic_str: str, mime_type: str, format_name: str):
+        self.magic_str = magic_str
+        self.mime_type = mime_type
+        self.format_name = format_name
+
+class REAAnalyzer:
+    """Analisador de engenharia reversa assistido por IA"""
+
+    # Assinaturas magic para detecção de formato
+    MAGIC_SIGNATURES = {
+        'PE': b'MZ',
+        'ELF': b'\x7fELF',
+        'Mach-O': b'\xca\xfe\xba\xbe',
+        'APK': b'PK\x03\x04',
+        'JAR': b'PK\x03\x04',
+        'WASM': b'\x00\x61\x73\x6d',
+        'ZIP': b'PK\x03\x04',
+        'Gzip': b'\x1f\x8b',
+        'PDF': b'%PDF',
+    }
+
+    def __init__(self, target_path: str):
+        self.target_path = Path(target_path)
+        self.file_info: Dict = {}
+        self.strings: List[str] = []
+        self.headers: Dict = {}
+
+    def analyze(self) -> Dict:
+        """Executar análise completa"""
+        print(f"[*] Iniciando análise REA de: {self.target_path}")
+
+        file_info = self._detect_file_type()
+        entropy = self._calculate_entropy()
+        file_info['entropy'] = entropy
+
+        strings = self._extract_strings()
+        self.strings = strings  # Store for other methods
+
+        results = {
+            'target': str(self.target_path),
+            'file_info': file_info,
+            'strings': strings,
+            'sections': self._extract_sections(),
+            'imports': self._extract_imports(),
+            'suspicious_indicators': self._detect_suspicious_indicators()
+        }
+
+        return results
+
+    def _detect_file_type(self) -> Dict:
+        """Detectar tipo de arquivo usando magic numbers"""
+        result = {'detected_format': 'unknown', 'confidence': 0.0, 'details': {}}
+
+        with open(self.target_path, 'rb') as f:
+            header = f.read(16)
+
+        for fmt, signature in self.MAGIC_SIGNATURES.items():
+            if header[:len(signature)] == signature:
+                result['detected_format'] = fmt
+                result['confidence'] = 0.95
+
+                if fmt == 'PE':
+                    result['details'] = self._parse_pe_header(header)
+                elif fmt == 'ELF':
+                    result['details'] = self._parse_elf_header(header)
+                elif fmt == 'APK' or fmt == 'JAR':
+                    result['details'] = {'compression': 'ZIP'}
+
+                break
+
+        if magic:
+            mime = magic.from_file(str(self.target_path))
+            result['magic_mime'] = mime
+
+        return result
+
+    def _parse_pe_header(self, header: bytes) -> Dict:
+        """Parsear cabeçalho PE básico"""
+        info = {}
+        if header[:2] == b'MZ':
+            # Offset para header PE está no offset 0x3C
+            if len(header) >= 60:
+                pe_offset = struct.unpack_from('<I', header, 0x3C)[0]
+                info['pe_header_offset'] = pe_offset
+        return info
+
+    def _parse_elf_header(self, header: bytes) -> Dict:
+        """Parsear cabeçalho ELF básico"""
+        info = {}
+        if len(header) >= 16:
+            # ELF magic já verificada
+            class_type = header[4]  # 1=32bit, 2=64bit
+            info['elf_class'] = 'ELF32' if class_type == 1 else 'ELF64'
+
+            endian = header[5]
+            info['endianness'] = 'LE' if endian == 1 else 'BE'
+
+            os_abi = header[7]
+            os_names = {
+                0: 'System V', 1: 'HP-UX', 2: 'NetBSD', 3: 'Linux',
+                6: 'Solaris', 7: 'AIX', 8: 'IRIX', 9: 'FreeBSD'
+            }
+            info['os_abi'] = os_names.get(os_abi, f'Unknown({os_abi})')
+
+        return info
+
+    def _calculate_entropy(self) -> float:
+        """Calcular entropia de Shannon do arquivo"""
+        import math
+        with open(self.target_path, 'rb') as f:
+            data = f.read()
+
+        if not data:
+            return 0.0
+
+        entropy = 0.0
+        byte_counts = [0] * 256
+
+        for byte in data:
+            byte_counts[byte] += 1
+
+        data_len = len(data)
+
+        for count in byte_counts:
+            if count > 0:
+                probability = count / data_len
+                entropy -= probability * math.log2(probability)
+
+        return round(entropy, 4)
+
+    def _extract_strings(self, min_length: int = 4) -> List[str]:
+        """Extrair strings imprimíveis"""
+        strings = []
+        current_string = b''
+
+        with open(self.target_path, 'rb') as f:
+            while True:
+                byte = f.read(1)
+                if not byte:
+                    break
+
+                if 32 <= byte[0] <= 126:  # ASCII printable
+                    current_string += byte
+                else:
+                    if len(current_string) >= min_length:
+                        try:
+                            strings.append(current_string.decode('ascii'))
+                        except:
+                            pass
+                    current_string = b''
+
+        return strings[:1000]  # Limitar para performance
+
+    def _extract_sections(self) -> List[Dict]:
+        """Extrair informações de seções (PE/ELF simplificado)"""
+        sections = []
+
+        # Tentar usar ferramentas externas se disponíveis
+        tools_to_try = [
+            ('readelf -S', 'elf'),
+            ('objdump -h', 'elf'),
+            ('pefile', 'pe'),
+            ('file', 'generic')
+        ]
+
+        for cmd, fmt in tools_to_try:
+            try:
+                if fmt == 'generic' or not self.file_info.get('detected_format'):
+                    result = subprocess.run([cmd, str(self.target_path)],
+                                          capture_output=True, text=True, timeout=5)
+                    if result.returncode == 0:
+                        sections.append({'tool': cmd, 'output': result.stdout[:500]})
+            except:
+                continue
+
+        return sections
+
+    def _extract_imports(self) -> List[str]:
+        """ Extrair funções importadas"""
+        imports = []
+
+        # Usar strings para detectar imports comuns
+        api_keywords = [
+            'Import(', 'GetProcAddress', 'LoadLibrary',
+            'kernel32.dll', 'ntdll.dll', 'user32.dll',
+            'advapi32.dll', 'ws2_32.dll', 'cryptoapi'
+        ]
+
+        for keyword in api_keywords:
+            if keyword in self.strings:
+                imports.append(keyword)
+
+        return imports
+
+    def _detect_suspicious_indicators(self) -> List[Dict]:
+        """Detectar indicadores de suspeita"""
+        indicators = []
+
+        # Strings suspeitas
+        suspicious_strings = [
+            'exec', 'system(', 'eval(', 'cmd.exe', '/bin/sh',
+            'powershell', 'download', 'upload', 'connect',
+            'registry', 'keylog', 'screenshot', 'mutex'
+        ]
+
+        for s in self.strings:
+            for suspicious in suspicious_strings:
+                if suspicious.lower() in s.lower():
+                    indicators.append({
+                        'type': 'suspicious_string',
+                        'value': s[:100],
+                        'match': suspicious
+                    })
+                    break
+
+        # Alta entropia pode indicar criptografia/packing
+        entropy = self.file_info.get('entropy', 0)
+        if entropy > 7.0:
+            indicators.append({
+                'type': 'high_entropy',
+                'value': entropy,
+                'description': 'Alta entropia pode indicar packing ou criptografia'
+            })
+
+        return indicators[:20]  # Limitar resultados
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: rea_analyzer.py <target_file>")
+        print("\nExemplo: python rea_analyzer.py malware.exe")
+        sys.exit(1)
+
+    target = sys.argv[1]
+
+    if not Path(target).exists():
+        print(f"Erro: Arquivo não encontrado: {target}")
+        sys.exit(1)
+
+    analyzer = REAAnalyzer(target)
+    results = analyzer.analyze()
+
+    # Output como JSON
+    print("\n" + "="*60)
+    print("RELAUTÓRIO DE ANÁLISE REA")
+    print("="*60)
+    print(json.dumps(results, indent=2, default=str))
+    print("="*60)
+
+    # Salvar relatório
+    output_file = Path(target).stem + "_analysis.json"
+    with open(output_file, 'w') as f:
+        json.dump(results, f, indent=2, default=str)
+    print(f"\n[+] Relatório salvo: {output_file}")
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,63 @@
+{
+  "target": "tools\\bla",
+  "techniques_applied": [
+    "exhaustion",
+    "poison",
+    "deception"
+  ],
+  "canaries_planted": [
+    {
+      "type": "fake_api_key",
+      "value": "61ad46f3a0517b793021c2317ff9928c",
+      "created": 1793660681.2925994,
+      "purpose": "Detect access to fake_api_key"
+    },
+    {
+      "type": "decoy_credential",
+      "value": "6a3aac0ecbadae71189545e99d0da06b",
+      "created": 1793660681.6130612,
+      "purpose": "Detect access to decoy_credential"
+    },
+    {
+      "type": "honey_token",
+      "value": "db4a0f5e466b71fe501713ba920feb54",
+      "created": 1793660681.6130612,
+      "purpose": "Detect access to honey_token"
+    },
+    {
+      "type": "trap_file",
+      "value": "e7cea09f9cf1e584753c70a941039a32",
+      "created": 1793660681.6531005,
+      "purpose": "Detect access to trap_file"
+    }
+  ],
+  "metadata_added": {
+    "_decoy_production_config": {
+      "name": "production_config",
+      "env": "staging",
+      "debug": true
+    },
+    "_decoy_backup_keys": {
+      "name": "backup_keys",
+      "type": "RSA-2048",
+      "exposed": false
+    },
+    "_decoy_admin_endpoint": {
+      "name": "admin_endpoint",
+      "url": "http://127.0.0.1:9999/admin",
+      "protected": false
+    }
+  },
+  "performance_impact": {},
+  "status": "success",
+  "exhaustion": {
+    "actions": [],
+    "size_increase": 0,
+    "artifacts_modified": []
+  },
+  "functional_equivalence": {
+    "files_preserved": 4,
+    "structure_intact": true,
+    "note": "Funcionalidade deve ser testada manualmente"
+  }
+}

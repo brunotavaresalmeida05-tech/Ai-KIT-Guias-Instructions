@@ -1,0 +1,6 @@
+{
+  "type": "fake_api_key",
+  "value": "61ad46f3a0517b793021c2317ff9928c",
+  "created": 1793660681.2925994,
+  "purpose": "Detect access to fake_api_key"
+}
