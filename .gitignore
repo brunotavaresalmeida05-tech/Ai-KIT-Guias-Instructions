@@ -43,3 +43,8 @@ tmp/
 temp/
 *.tmp
 *.temp
+
+# Git worktrees/nested repos
+.ai/.git/
+*.worktrees/
+.claude/
